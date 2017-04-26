@@ -25,7 +25,58 @@ extension FIRImage{
     
     func saveProfileImage(userUID:String,completion:@escaping (Error?) -> Void){
         
+        let resized = image.resize()
+        let imageData =  UIImageJPEGRepresentation(resized, 0.9)
+        
+        ref = StorageReference.profileImages.ref().child(userUID)
+        downloadLink = ref.description
+        
+        ref.put(imageData!, metadata: nil) { (metadData, error) in
+           completion(error)
+        }
     }
+    
+    func save(uid:String, completion:@escaping (Error?) -> Void){
+        
+        let resized = image.resize()
+        let imageData =  UIImageJPEGRepresentation(resized, 0.9)
+        
+        ref = StorageReference.images.ref().child(uid)
+        downloadLink = ref.description
+        
+        ref.put(imageData!, metadata: nil) { (metadData, error) in
+            completion(error)
+        }
+
+    }
+}
+
+extension FIRImage{
+    
+    class func downloadProfileImage(uid:String,completion:@escaping (UIImage?,Error?) -> Void){
+        
+        StorageReference.profileImages.ref().child(uid).data(withMaxSize: 1*1024*1024) {(imageData, error) in
+            if error == nil && imageData != nil{
+                let image = UIImage(data: imageData!)
+                completion(image,error)
+            }else{
+                completion(nil,error)
+            }
+        }
+   }
+    
+    class func downloadImage(uid:String,completion:@escaping (UIImage?,Error?) -> Void){
+        
+        StorageReference.images.ref().child(uid).data(withMaxSize: 1*1024*1024) {(imageData, error) in
+            if error == nil && imageData != nil{
+                let image = UIImage(data: imageData!)
+                completion(image,error)
+            }else{
+                completion(nil,error)
+            }
+        }
+    }
+    
 }
 
 private extension UIImage{
