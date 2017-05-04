@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		50F3A64650F9E8CAEF8F1F3D /* Pods_Momentos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869646546579D373B6D066F0 /* Pods_Momentos.framework */; };
+		F40054DF1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */; };
+		F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40054E01EBAC26300CE46D6 /* SignUpTableViewController.swift */; };
+		F40054E31EBAC28B00CE46D6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */; };
+		F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40054E41EBAC91200CE46D6 /* ImagePickerHelper.swift */; };
 		F447422B1EA58833001B7701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F447422A1EA58833001B7701 /* AppDelegate.swift */; };
 		F44742301EA58833001B7701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F447422E1EA58833001B7701 /* Main.storyboard */; };
 		F44742321EA58833001B7701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44742311EA58833001B7701 /* Assets.xcassets */; };
@@ -23,6 +27,11 @@
 		44F4FB87493A32CDFF1D3DD4 /* Pods-Momentos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Momentos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Momentos/Pods-Momentos.release.xcconfig"; sourceTree = "<group>"; };
 		869646546579D373B6D066F0 /* Pods_Momentos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Momentos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C38AB81E7C11A8FDD50A69 /* Pods-Momentos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Momentos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Momentos/Pods-Momentos.debug.xcconfig"; sourceTree = "<group>"; };
+		F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
+		F40054E01EBAC26300CE46D6 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
+		F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		F40054E41EBAC91200CE46D6 /* ImagePickerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerHelper.swift; path = ../ImagePickerHelper.swift; sourceTree = "<group>"; };
+		F40054E61EBAD7C800CE46D6 /* Momentos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Momentos.entitlements; sourceTree = "<group>"; };
 		F44742271EA58833001B7701 /* Momentos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Momentos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F447422A1EA58833001B7701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F447422F1EA58833001B7701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,9 +96,14 @@
 		F44742291EA58833001B7701 /* Momentos */ = {
 			isa = PBXGroup;
 			children = (
+				F40054E61EBAD7C800CE46D6 /* Momentos.entitlements */,
 				F447422A1EA58833001B7701 /* AppDelegate.swift */,
 				F44AF38C1EAEF49B00925B61 /* Model */,
 				F447422E1EA58833001B7701 /* Main.storyboard */,
+				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
+				F40054E01EBAC26300CE46D6 /* SignUpTableViewController.swift */,
+				F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */,
+				F40054E41EBAC91200CE46D6 /* ImagePickerHelper.swift */,
 				F44742311EA58833001B7701 /* Assets.xcassets */,
 				F44742331EA58833001B7701 /* LaunchScreen.storyboard */,
 				F44742361EA58833001B7701 /* Info.plist */,
@@ -145,6 +159,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = RREN52MQC8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -235,9 +254,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */,
+				F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */,
 				F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */,
+				F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */,
 				F447422B1EA58833001B7701 /* AppDelegate.swift in Sources */,
+				F40054DF1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift in Sources */,
 				F44AF38E1EAEF4B000925B61 /* User.swift in Sources */,
+				F40054E31EBAC28B00CE46D6 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +384,7 @@
 			baseConfigurationReference = B3C38AB81E7C11A8FDD50A69 /* Pods-Momentos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Momentos/Momentos.entitlements;
 				DEVELOPMENT_TEAM = RREN52MQC8;
 				INFOPLIST_FILE = Momentos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -375,6 +399,7 @@
 			baseConfigurationReference = 44F4FB87493A32CDFF1D3DD4 /* Pods-Momentos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Momentos/Momentos.entitlements;
 				DEVELOPMENT_TEAM = RREN52MQC8;
 				INFOPLIST_FILE = Momentos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

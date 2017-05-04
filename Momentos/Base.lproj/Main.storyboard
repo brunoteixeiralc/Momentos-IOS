@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mXH-qJ-YVR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mXH-qJ-YVR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,10 +33,10 @@
             </objects>
             <point key="canvasLocation" x="-986" y="829"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="FxT-UT-SXr">
             <objects>
-                <viewController id="GW1-cA-R7S" sceneMemberID="viewController">
+                <viewController id="GW1-cA-R7S" customClass="WelcomeViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pJO-S5-Iu2"/>
                         <viewControllerLayoutGuide type="bottom" id="Hv8-jK-n0t"/>
@@ -51,9 +51,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTs-Eb-oeB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNi-hl-H7S">
-                                        <rect key="frame" x="8" y="615" width="359" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNi-hl-H7S">
+                                        <rect key="frame" x="8" y="626" width="359" height="33"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.19877307046979867" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,9 +60,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvU-3Z-WH8">
-                                        <rect key="frame" x="8" y="563" width="359" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvU-3Z-WH8">
+                                        <rect key="frame" x="8" y="585" width="359" height="33"/>
                                         <color key="backgroundColor" red="0.9882352941176471" green="0.28235294117647058" blue="0.19215686274509802" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,15 +72,24 @@
                                             <segue destination="pm9-Nj-GXT" kind="show" id="jDe-f4-ZvU"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Momentos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnb-tx-I9r">
-                                        <rect key="frame" x="86" y="168" width="203" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Momentos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnb-tx-I9r">
+                                        <rect key="frame" x="89" y="168" width="197" height="53"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="44"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25429687499999998" green="0.25429687499999998" blue="0.25429687499999998" alpha="0.70291526845637586" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="UNi-hl-H7S" firstAttribute="leading" secondItem="rTs-Eb-oeB" secondAttribute="leading" constant="8" id="892-Dc-7zG"/>
+                                    <constraint firstItem="Mnb-tx-I9r" firstAttribute="top" secondItem="rTs-Eb-oeB" secondAttribute="top" constant="168" id="DXm-XX-i9Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="UNi-hl-H7S" secondAttribute="bottom" constant="8" id="eKw-PU-BTT"/>
+                                    <constraint firstItem="Mnb-tx-I9r" firstAttribute="centerX" secondItem="rTs-Eb-oeB" secondAttribute="centerX" id="eX0-ta-hpT"/>
+                                    <constraint firstAttribute="trailing" secondItem="nvU-3Z-WH8" secondAttribute="trailing" constant="8" id="mYi-SN-zgp"/>
+                                    <constraint firstItem="nvU-3Z-WH8" firstAttribute="leading" secondItem="rTs-Eb-oeB" secondAttribute="leading" constant="8" id="p8A-3j-FQF"/>
+                                    <constraint firstItem="UNi-hl-H7S" firstAttribute="top" secondItem="nvU-3Z-WH8" secondAttribute="bottom" constant="8" id="sx7-oo-Cpz"/>
+                                    <constraint firstAttribute="trailing" secondItem="UNi-hl-H7S" secondAttribute="trailing" constant="8" id="y4l-aI-YdD"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,7 +112,7 @@
         <!--Root View Controller-->
         <scene sceneID="xxt-Tq-18l">
             <objects>
-                <tableViewController id="mCo-YN-KXY" sceneMemberID="viewController">
+                <tableViewController id="mCo-YN-KXY" customClass="SignUpTableViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="g7E-rF-ePE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,6 +132,9 @@
                                     <rect key="frame" x="133.5" y="81" width="108" height="30"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                     <state key="normal" title="Mudar sua foto"/>
+                                    <connections>
+                                        <action selector="changeProfilePhotoDidTap:" destination="mCo-YN-KXY" eventType="touchUpInside" id="zuu-GZ-5B8"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -137,7 +147,7 @@
                             </constraints>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="Conta nova" id="Jz9-cq-06K">
+                            <tableViewSection headerTitle="Nova conta" id="Jz9-cq-06K">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LWK-gO-p0s">
                                         <rect key="frame" x="0.0" y="139" width="375" height="44"/>
@@ -289,6 +299,9 @@
                                                     <state key="normal" title="Criar nova conta">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="createNewAccountDidTap" destination="mCo-YN-KXY" eventType="touchUpInside" id="8St-dh-Ot0"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -308,8 +321,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="JcU-Pn-fKV">
-                        <barButtonItem key="leftBarButtonItem" image="icon-back" id="fsC-m7-V0k"/>
+                        <barButtonItem key="leftBarButtonItem" image="icon-back" id="fsC-m7-V0k">
+                            <connections>
+                                <action selector="backDidTap:" destination="mCo-YN-KXY" id="uYB-f8-zJJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="kJT-nj-K4t" id="0cC-4g-ZwW"/>
+                        <outlet property="fullNameTextFields" destination="9ij-5b-b7f" id="ovZ-QN-9T6"/>
+                        <outlet property="passwordTextField" destination="XyW-vi-oEE" id="Unf-ux-mBd"/>
+                        <outlet property="profileImageView" destination="Dgc-Xg-HLB" id="SZ4-lN-Khr"/>
+                        <outlet property="usernameTextField" destination="zO1-r0-Vwk" id="9H5-hA-yN1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQc-6c-dX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -334,7 +358,7 @@
         <!--Momentos-->
         <scene sceneID="Uju-Ev-3fE">
             <objects>
-                <tableViewController id="xjf-vr-pG5" sceneMemberID="viewController">
+                <tableViewController id="xjf-vr-pG5" customClass="NewsFeedTableViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iQv-5p-hXg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,7 +518,7 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <segue destination="mke-2L-o0v" kind="show" identifier="ShowMediaDetail" id="ZDq-dN-Irn"/>
-                        <segue destination="GW1-cA-R7S" kind="presentation" id="PnD-5L-Vxf"/>
+                        <segue destination="GW1-cA-R7S" kind="presentation" identifier="ShowWelcomeViewController" id="PnD-5L-Vxf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ahc-cY-YHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
