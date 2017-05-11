@@ -16,9 +16,7 @@ class WelcomeViewController: UIViewController {
         
         FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             if let user = user{
-                
                 self.dismiss(animated: false, completion: nil)
-            
             }else{
                 
             }

@@ -21,6 +21,8 @@
 		F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */; };
 		F44AF38E1EAEF4B000925B61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38D1EAEF4B000925B61 /* User.swift */; };
 		F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */; };
+		F4C275611EC3E3CE00A032D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */; };
+		F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseReference.swift; path = ../FirebaseReference.swift; sourceTree = "<group>"; };
 		F44AF38D1EAEF4B000925B61 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImage.swift; sourceTree = "<group>"; };
+		F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +104,10 @@
 				F447422A1EA58833001B7701 /* AppDelegate.swift */,
 				F44AF38C1EAEF49B00925B61 /* Model */,
 				F447422E1EA58833001B7701 /* Main.storyboard */,
-				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
-				F40054E01EBAC26300CE46D6 /* SignUpTableViewController.swift */,
-				F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */,
-				F40054E41EBAC91200CE46D6 /* ImagePickerHelper.swift */,
+				F4C2755E1EC3E38E00A032D7 /* Newsfeed */,
+				F4C2755D1EC3E37900A032D7 /* User Authentication */,
+				F4C2755F1EC3E39D00A032D7 /* Helper Classes */,
+				F4C275621EC3E7DA00A032D7 /* Profile Tab */,
 				F44742311EA58833001B7701 /* Assets.xcassets */,
 				F44742331EA58833001B7701 /* LaunchScreen.storyboard */,
 				F44742361EA58833001B7701 /* Info.plist */,
@@ -120,6 +124,40 @@
 				F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F4C2755D1EC3E37900A032D7 /* User Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F40054E01EBAC26300CE46D6 /* SignUpTableViewController.swift */,
+				F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */,
+				F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */,
+			);
+			name = "User Authentication";
+			sourceTree = "<group>";
+		};
+		F4C2755E1EC3E38E00A032D7 /* Newsfeed */ = {
+			isa = PBXGroup;
+			children = (
+				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
+			);
+			name = Newsfeed;
+			sourceTree = "<group>";
+		};
+		F4C2755F1EC3E39D00A032D7 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F40054E41EBAC91200CE46D6 /* ImagePickerHelper.swift */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		F4C275621EC3E7DA00A032D7 /* Profile Tab */ = {
+			isa = PBXGroup;
+			children = (
+				F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */,
+			);
+			name = "Profile Tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,7 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C275611EC3E3CE00A032D7 /* LoginViewController.swift in Sources */,
 				F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */,
+				F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */,
 				F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */,
 				F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */,
 				F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */,
