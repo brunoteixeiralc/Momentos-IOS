@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mXH-qJ-YVR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mXH-qJ-YVR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -852,10 +852,10 @@
             </objects>
             <point key="canvasLocation" x="1524" y="829"/>
         </scene>
-        <!--View Controller-->
+        <!--Dummy Post Composer View Controller-->
         <scene sceneID="3jW-dg-2nZ">
             <objects>
-                <viewController id="o81-bY-d2c" sceneMemberID="viewController">
+                <viewController id="o81-bY-d2c" customClass="DummyPostComposerViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P97-1C-rLZ"/>
                         <viewControllerLayoutGuide type="bottom" id="1Dm-QC-eqL"/>
@@ -897,7 +897,7 @@
         <!--Postagem nova-->
         <scene sceneID="ZxD-RB-yLb">
             <objects>
-                <tableViewController id="2OT-dH-ORI" sceneMemberID="viewController">
+                <tableViewController id="2OT-dH-ORI" customClass="PostComposerViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="76o-Ch-8t2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -970,7 +970,7 @@
                                                 <constraint firstItem="VdK-Mg-qJF" firstAttribute="top" secondItem="tx7-BM-nsD" secondAttribute="top" constant="12" id="KSC-l8-fN5"/>
                                                 <constraint firstItem="VdK-Mg-qJF" firstAttribute="leading" secondItem="uvY-C2-BtW" secondAttribute="trailing" constant="8" id="QLm-xj-6yJ"/>
                                                 <constraint firstItem="uvY-C2-BtW" firstAttribute="leading" secondItem="tx7-BM-nsD" secondAttribute="leading" constant="8" id="RVl-RK-MIz"/>
-                                                <constraint firstItem="mg7-Bq-SB8" firstAttribute="leading" secondItem="VdK-Mg-qJF" secondAttribute="trailing" constant="202.5" id="m6v-UO-Ygn"/>
+                                                <constraint firstAttribute="trailing" secondItem="mg7-Bq-SB8" secondAttribute="trailing" constant="8" id="qct-at-YsL"/>
                                                 <constraint firstItem="mg7-Bq-SB8" firstAttribute="top" secondItem="tx7-BM-nsD" secondAttribute="top" constant="7" id="r2N-Gf-JU8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1000,9 +1000,9 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lnc-i7-5eF" secondAttribute="trailing" constant="8" id="1ZQ-wx-S9O"/>
                                                 <constraint firstItem="jqm-P7-d3c" firstAttribute="leading" secondItem="HsB-TF-kyJ" secondAttribute="leading" constant="8" id="5oc-ym-xZF"/>
                                                 <constraint firstItem="jqm-P7-d3c" firstAttribute="top" secondItem="HsB-TF-kyJ" secondAttribute="top" constant="11" id="OmS-qd-GKP"/>
-                                                <constraint firstItem="lnc-i7-5eF" firstAttribute="leading" secondItem="Mfs-Il-XYo" secondAttribute="trailing" constant="227.5" id="SgT-Q2-qet"/>
                                                 <constraint firstItem="lnc-i7-5eF" firstAttribute="top" secondItem="HsB-TF-kyJ" secondAttribute="top" constant="7" id="p5M-Lw-xDC"/>
                                                 <constraint firstItem="Mfs-Il-XYo" firstAttribute="top" secondItem="HsB-TF-kyJ" secondAttribute="top" constant="11" id="uJu-Mp-Ge3"/>
                                                 <constraint firstItem="Mfs-Il-XYo" firstAttribute="leading" secondItem="jqm-P7-d3c" secondAttribute="trailing" constant="8" id="xeM-81-a2z"/>
@@ -1020,11 +1020,22 @@
                     <navigationItem key="navigationItem" title="Postagem nova" id="r0b-Ih-jcc">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="hqw-N7-gfV">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelDidTap:" destination="2OT-dH-ORI" id="Rsc-5f-71l"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Enviar" id="gb3-7m-kMg">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="shareDidTap:" destination="2OT-dH-ORI" id="zFe-vj-kEU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="2PB-2h-sE6" id="XYe-5P-9TK"/>
+                        <outlet property="shareBarButtom" destination="gb3-7m-kMg" id="1CS-mb-jHU"/>
+                        <outlet property="textView" destination="Xjx-W2-BK1" id="hvh-ej-G5m"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuu-bB-nU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1033,7 +1044,7 @@
         <!--Navigation Controller-->
         <scene sceneID="38S-0A-IJv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OE3-rD-jT1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostComposerNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="OE3-rD-jT1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sz9-WL-o30">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

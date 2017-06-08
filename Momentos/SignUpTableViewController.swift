@@ -59,7 +59,7 @@ class SignUpTableViewController: UITableViewController {
                             
                         }else{
                             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (firuser, error) in
-                                if let error = error{
+                                if error != nil{
                                     
                                 }else{
                                    self.dismiss(animated: true, completion: nil)

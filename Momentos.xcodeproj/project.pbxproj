@@ -12,6 +12,10 @@
 		F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40054E01EBAC26300CE46D6 /* SignUpTableViewController.swift */; };
 		F40054E31EBAC28B00CE46D6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */; };
 		F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40054E41EBAC91200CE46D6 /* ImagePickerHelper.swift */; };
+		F4065F111EE8CF2F00D04E4F /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4065F101EE8CF2F00D04E4F /* Media.swift */; };
+		F4065F131EE8D25900D04E4F /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4065F121EE8D25900D04E4F /* Comments.swift */; };
+		F4065F161EE8DFD800D04E4F /* DummyPostComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4065F151EE8DFD800D04E4F /* DummyPostComposerViewController.swift */; };
+		F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4065F171EE8DFF400D04E4F /* PostComposerViewController.swift */; };
 		F447422B1EA58833001B7701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F447422A1EA58833001B7701 /* AppDelegate.swift */; };
 		F44742301EA58833001B7701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F447422E1EA58833001B7701 /* Main.storyboard */; };
 		F44742321EA58833001B7701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44742311EA58833001B7701 /* Assets.xcassets */; };
@@ -34,6 +38,10 @@
 		F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		F40054E41EBAC91200CE46D6 /* ImagePickerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerHelper.swift; path = ../ImagePickerHelper.swift; sourceTree = "<group>"; };
 		F40054E61EBAD7C800CE46D6 /* Momentos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Momentos.entitlements; sourceTree = "<group>"; };
+		F4065F101EE8CF2F00D04E4F /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		F4065F121EE8D25900D04E4F /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		F4065F151EE8DFD800D04E4F /* DummyPostComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyPostComposerViewController.swift; sourceTree = "<group>"; };
+		F4065F171EE8DFF400D04E4F /* PostComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostComposerViewController.swift; sourceTree = "<group>"; };
 		F44742271EA58833001B7701 /* Momentos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Momentos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F447422A1EA58833001B7701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F447422F1EA58833001B7701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +86,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F4065F141EE8DFA900D04E4F /* Post Composer Tab */ = {
+			isa = PBXGroup;
+			children = (
+				F4065F151EE8DFD800D04E4F /* DummyPostComposerViewController.swift */,
+				F4065F171EE8DFF400D04E4F /* PostComposerViewController.swift */,
+			);
+			name = "Post Composer Tab";
+			sourceTree = "<group>";
+		};
 		F447421E1EA58833001B7701 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +124,7 @@
 				F4C2755E1EC3E38E00A032D7 /* Newsfeed */,
 				F4C2755D1EC3E37900A032D7 /* User Authentication */,
 				F4C2755F1EC3E39D00A032D7 /* Helper Classes */,
+				F4065F141EE8DFA900D04E4F /* Post Composer Tab */,
 				F4C275621EC3E7DA00A032D7 /* Profile Tab */,
 				F44742311EA58833001B7701 /* Assets.xcassets */,
 				F44742331EA58833001B7701 /* LaunchScreen.storyboard */,
@@ -121,6 +139,8 @@
 			children = (
 				F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */,
 				F44AF38D1EAEF4B000925B61 /* User.swift */,
+				F4065F101EE8CF2F00D04E4F /* Media.swift */,
+				F4065F121EE8D25900D04E4F /* Comments.swift */,
 				F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */,
 			);
 			name = Model;
@@ -291,9 +311,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4065F111EE8CF2F00D04E4F /* Media.swift in Sources */,
 				F4C275611EC3E3CE00A032D7 /* LoginViewController.swift in Sources */,
 				F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */,
 				F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */,
+				F4065F161EE8DFD800D04E4F /* DummyPostComposerViewController.swift in Sources */,
 				F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */,
 				F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */,
 				F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */,
@@ -301,6 +323,8 @@
 				F40054DF1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift in Sources */,
 				F44AF38E1EAEF4B000925B61 /* User.swift in Sources */,
 				F40054E31EBAC28B00CE46D6 /* WelcomeViewController.swift in Sources */,
+				F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */,
+				F4065F131EE8D25900D04E4F /* Comments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

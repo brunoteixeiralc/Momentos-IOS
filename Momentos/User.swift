@@ -37,8 +37,8 @@ class User {
     init(dictionary:[String:Any]) {
         
         uid = dictionary["uid"] as! String
-        userName = dictionary["username"] as! String
-        fullName = dictionary["fullname"] as! String
+        userName = dictionary["userName"] as! String
+        fullName = dictionary["fullName"] as! String
         bio = dictionary["bio"] as! String
         website = dictionary["website"] as! String
         
@@ -96,4 +96,12 @@ class User {
             "website":website
         ]
     }
+}
+
+extension User {
+    
+    func share(newMedia:Media){
+        DatabaseReference.user(uid: uid).ref().child("media").childByAutoId().setValue(newMedia.uid)
+    }
+    
 }
