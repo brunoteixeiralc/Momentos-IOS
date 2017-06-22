@@ -25,6 +25,9 @@
 		F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */; };
 		F44AF38E1EAEF4B000925B61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38D1EAEF4B000925B61 /* User.swift */; };
 		F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */; };
+		F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */; };
+		F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */; };
+		F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */; };
 		F4C275611EC3E3CE00A032D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */; };
 		F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +56,9 @@
 		F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseReference.swift; path = ../FirebaseReference.swift; sourceTree = "<group>"; };
 		F44AF38D1EAEF4B000925B61 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImage.swift; sourceTree = "<group>"; };
+		F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHeaderCell.swift; sourceTree = "<group>"; };
+		F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
+		F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
+				F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */,
+				F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */,
+				F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */,
 			);
 			name = Newsfeed;
 			sourceTree = "<group>";
@@ -317,12 +326,15 @@
 				F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */,
 				F4065F161EE8DFD800D04E4F /* DummyPostComposerViewController.swift in Sources */,
 				F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */,
+				F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */,
 				F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */,
 				F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */,
 				F447422B1EA58833001B7701 /* AppDelegate.swift in Sources */,
+				F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */,
 				F40054DF1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift in Sources */,
 				F44AF38E1EAEF4B000925B61 /* User.swift in Sources */,
 				F40054E31EBAC28B00CE46D6 /* WelcomeViewController.swift in Sources */,
+				F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */,
 				F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */,
 				F4065F131EE8D25900D04E4F /* Comments.swift in Sources */,
 			);

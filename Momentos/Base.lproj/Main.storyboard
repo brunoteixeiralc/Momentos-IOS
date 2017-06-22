@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mXH-qJ-YVR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mXH-qJ-YVR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -367,7 +367,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="YOq-hB-9NP">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MediaHeaderCell" rowHeight="57" id="YOq-hB-9NP" customClass="MediaHeaderCell" customModule="Momentos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YOq-hB-9NP" id="Fsf-5f-TUS">
@@ -389,18 +389,30 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kf-tx-Yhh">
+                                            <rect key="frame" x="298" y="14" width="69" height="28.5"/>
+                                            <state key="normal" title="   Seguir   "/>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Ock-fE-f4W" firstAttribute="top" secondItem="Fsf-5f-TUS" secondAttribute="top" constant="10" id="8VC-Kv-x0o"/>
                                         <constraint firstAttribute="bottom" secondItem="9Ge-fe-7Ie" secondAttribute="bottom" constant="8.5" id="8sr-71-rXB"/>
                                         <constraint firstItem="Ock-fE-f4W" firstAttribute="leading" secondItem="9Ge-fe-7Ie" secondAttribute="trailing" constant="12" id="S4J-uT-vNf"/>
+                                        <constraint firstItem="6kf-tx-Yhh" firstAttribute="top" secondItem="Fsf-5f-TUS" secondAttribute="top" constant="14" id="Xaz-Sc-T4V"/>
                                         <constraint firstItem="9Ge-fe-7Ie" firstAttribute="top" secondItem="Fsf-5f-TUS" secondAttribute="top" constant="8" id="bKa-2K-8Ht"/>
+                                        <constraint firstAttribute="trailing" secondItem="6kf-tx-Yhh" secondAttribute="trailing" constant="8" id="ffh-3e-tAa"/>
                                         <constraint firstAttribute="bottom" secondItem="Ock-fE-f4W" secondAttribute="bottom" constant="10.5" id="k2m-DA-dIa"/>
+                                        <constraint firstAttribute="bottom" secondItem="6kf-tx-Yhh" secondAttribute="bottom" constant="14" id="s6t-LQ-jGb"/>
                                         <constraint firstItem="9Ge-fe-7Ie" firstAttribute="leading" secondItem="Fsf-5f-TUS" secondAttribute="leading" constant="12" id="ytH-EC-Y9i"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="followButtom" destination="6kf-tx-Yhh" id="PeN-mP-Woa"/>
+                                    <outlet property="profileImageView" destination="9Ge-fe-7Ie" id="FE9-yj-TlF"/>
+                                    <outlet property="usernameButtom" destination="Ock-fE-f4W" id="gma-PU-BzL"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="578" id="vec-5C-gba">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MediaCell" rowHeight="578" id="vec-5C-gba" customClass="MediaTableViewCell" customModule="Momentos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="85" width="375" height="578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vec-5C-gba" id="DEc-ke-EO3">
@@ -424,6 +436,9 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="icon-like"/>
+                                                    <connections>
+                                                        <action selector="likesDidTap" destination="vec-5C-gba" eventType="touchUpInside" id="aSS-YI-0oY"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86E-s7-XBN">
                                                     <rect key="frame" x="37" y="0.0" width="21" height="22"/>
@@ -433,6 +448,10 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="icon-comment"/>
+                                                    <connections>
+                                                        <action selector="commentDidTap" destination="vec-5C-gba" eventType="touchUpInside" id="uz7-5e-ch6"/>
+                                                        <segue destination="8lM-1n-zCM" kind="show" identifier="ShowCommentComposer" id="wfV-SS-Zrj"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtT-nJ-RdK">
                                                     <rect key="frame" x="74" y="0.0" width="21" height="22"/>
@@ -442,6 +461,9 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="icon-share"/>
+                                                    <connections>
+                                                        <action selector="shareDidTap" destination="vec-5C-gba" eventType="touchUpInside" id="daP-My-QCx"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -462,6 +484,9 @@
                                             <state key="normal" title="♥ 12 curtidas">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="numberOfLikesDidTap" destination="vec-5C-gba" eventType="touchUpInside" id="zNv-gW-k8y"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8K-yf-pZ2">
                                             <rect key="frame" x="12" y="515" width="189" height="24"/>
@@ -473,6 +498,9 @@
                                             <state key="normal" title="Ver todos os 4 comentários">
                                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="viewAllCommentsDidTap" destination="vec-5C-gba" eventType="touchUpInside" id="51u-2j-AUi"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOL-UW-J7b">
                                             <rect key="frame" x="12" y="460" width="349" height="38.5"/>
@@ -509,6 +537,16 @@
                                         <constraint firstItem="BOL-UW-J7b" firstAttribute="top" secondItem="Mp0-x0-IzS" secondAttribute="bottom" constant="8" id="un0-Wy-9sU"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="captionLabel" destination="BOL-UW-J7b" id="17A-Ki-Enn"/>
+                                    <outlet property="commentButtom" destination="86E-s7-XBN" id="7mu-sG-atZ"/>
+                                    <outlet property="createdAtLabel" destination="bpc-ui-J8g" id="Q3m-LX-r9W"/>
+                                    <outlet property="likeButtom" destination="mdQ-sv-4pZ" id="AbL-yY-m8f"/>
+                                    <outlet property="mediaImageView" destination="I4x-p6-pPR" id="1cg-OY-lrS"/>
+                                    <outlet property="numberOfLikesButtom" destination="Mp0-x0-IzS" id="t6c-V1-81R"/>
+                                    <outlet property="shareButtom" destination="OtT-nJ-RdK" id="KJa-Ro-R6t"/>
+                                    <outlet property="viewAllCommenstButtom" destination="h8K-yf-pZ2" id="z2V-Ds-i02"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -520,7 +558,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
-                        <segue destination="mke-2L-o0v" kind="show" identifier="ShowMediaDetail" id="ZDq-dN-Irn"/>
+                        <segue destination="mke-2L-o0v" kind="show" identifier="ShowMediaDetailSegue" id="ZDq-dN-Irn"/>
                         <segue destination="GW1-cA-R7S" kind="presentation" identifier="ShowWelcomeViewController" id="PnD-5L-Vxf"/>
                     </connections>
                 </tableViewController>
@@ -537,7 +575,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="Ing-au-0sf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MediaHeaderCell" rowHeight="57" id="Ing-au-0sf" customClass="MediaHeaderCell" customModule="Momentos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ing-au-0sf" id="1tE-lj-8VI">
@@ -559,18 +597,30 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lag-Hx-eQ4">
+                                            <rect key="frame" x="298" y="14" width="69" height="28.5"/>
+                                            <state key="normal" title="   Seguir   "/>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="zcr-h3-0IP" firstAttribute="leading" secondItem="1tE-lj-8VI" secondAttribute="leading" constant="12" id="0G9-Z1-rW1"/>
                                         <constraint firstItem="8y2-8S-LDI" firstAttribute="top" secondItem="1tE-lj-8VI" secondAttribute="top" constant="10" id="69T-NO-EJ8"/>
+                                        <constraint firstAttribute="bottom" secondItem="lag-Hx-eQ4" secondAttribute="bottom" constant="14" id="Esq-IN-hNk"/>
+                                        <constraint firstAttribute="trailing" secondItem="lag-Hx-eQ4" secondAttribute="trailing" constant="8" id="Ikl-pg-jJE"/>
                                         <constraint firstItem="zcr-h3-0IP" firstAttribute="top" secondItem="1tE-lj-8VI" secondAttribute="top" constant="8" id="LDe-xd-QN2"/>
                                         <constraint firstAttribute="bottom" secondItem="8y2-8S-LDI" secondAttribute="bottom" constant="10.5" id="Pti-MH-jI9"/>
+                                        <constraint firstItem="lag-Hx-eQ4" firstAttribute="top" secondItem="1tE-lj-8VI" secondAttribute="top" constant="14" id="h6O-8f-3l3"/>
                                         <constraint firstItem="8y2-8S-LDI" firstAttribute="leading" secondItem="zcr-h3-0IP" secondAttribute="trailing" constant="12" id="jv4-XG-8Ig"/>
                                         <constraint firstAttribute="bottom" secondItem="zcr-h3-0IP" secondAttribute="bottom" constant="8.5" id="wek-DP-sNe"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="followButtom" destination="lag-Hx-eQ4" id="IoI-8e-NUP"/>
+                                    <outlet property="profileImageView" destination="zcr-h3-0IP" id="Wf9-rt-tQK"/>
+                                    <outlet property="usernameButtom" destination="8y2-8S-LDI" id="Cwa-ED-icq"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="578" id="MvJ-Jk-Cbg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MediaCell" rowHeight="578" id="MvJ-Jk-Cbg" customClass="MediaTableViewCell" customModule="Momentos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="85" width="375" height="578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MvJ-Jk-Cbg" id="LBt-Xl-9Ov">
@@ -594,6 +644,9 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="icon-like"/>
+                                                    <connections>
+                                                        <action selector="likesDidTap" destination="MvJ-Jk-Cbg" eventType="touchUpInside" id="hTB-oP-KaS"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WnP-2z-5JV">
                                                     <rect key="frame" x="37" y="0.0" width="21" height="22"/>
@@ -603,6 +656,9 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="icon-comment"/>
+                                                    <connections>
+                                                        <action selector="commentDidTap" destination="MvJ-Jk-Cbg" eventType="touchUpInside" id="aW9-Jl-B31"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7z-iL-K9h">
                                                     <rect key="frame" x="74" y="0.0" width="21" height="22"/>
@@ -612,6 +668,9 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="icon-share"/>
+                                                    <connections>
+                                                        <action selector="shareDidTap" destination="MvJ-Jk-Cbg" eventType="touchUpInside" id="Ndv-rU-xfw"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -632,6 +691,9 @@
                                             <state key="normal" title="♥ 12 curtidas">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="numberOfLikesDidTap" destination="MvJ-Jk-Cbg" eventType="touchUpInside" id="chf-Of-kEA"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6o-Ip-EHq">
                                             <rect key="frame" x="12" y="515" width="189" height="24"/>
@@ -643,6 +705,9 @@
                                             <state key="normal" title="Ver todos os 4 comentários">
                                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="viewAllCommentsDidTap" destination="MvJ-Jk-Cbg" eventType="touchUpInside" id="6Rf-Ik-uKy"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rer-4T-heR">
                                             <rect key="frame" x="12" y="460" width="349" height="38.5"/>
@@ -679,8 +744,18 @@
                                         <constraint firstAttribute="trailing" secondItem="rer-4T-heR" secondAttribute="trailing" constant="14" id="ze3-3A-3Ej"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="captionLabel" destination="rer-4T-heR" id="UXP-WX-N0g"/>
+                                    <outlet property="commentButtom" destination="WnP-2z-5JV" id="xRA-Av-Lae"/>
+                                    <outlet property="createdAtLabel" destination="bTM-ZE-Szh" id="TYy-cQ-QCr"/>
+                                    <outlet property="likeButtom" destination="rAb-8e-mol" id="Yjm-WX-n01"/>
+                                    <outlet property="mediaImageView" destination="6ag-9g-BQ6" id="Iar-i7-Zbi"/>
+                                    <outlet property="numberOfLikesButtom" destination="XnW-sA-WwO" id="ZVF-Ae-9Nh"/>
+                                    <outlet property="shareButtom" destination="i7z-iL-K9h" id="FMD-Bg-dOg"/>
+                                    <outlet property="viewAllCommenstButtom" destination="G6o-Ip-EHq" id="3f8-zh-drL"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="sf4-b1-zPI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="100" id="sf4-b1-zPI" customClass="CommentsTableViewCell" customModule="Momentos" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="663" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sf4-b1-zPI" id="2YO-SV-RRp">
@@ -721,6 +796,11 @@
                                         <constraint firstItem="pAq-Bd-e0V" firstAttribute="top" secondItem="eil-Fc-UeE" secondAttribute="bottom" id="sPb-p7-Vxr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentsTextLabel" destination="pAq-Bd-e0V" id="TSz-SB-Ijj"/>
+                                    <outlet property="profileImageView" destination="K8t-dD-z7o" id="7t7-ss-4u6"/>
+                                    <outlet property="usernameButtom" destination="eil-Fc-UeE" id="TgW-dX-02y"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -750,7 +830,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Fah-Qk-wyd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d7R-XB-pw1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t1" translatesAutoresizingMaskIntoConstraints="NO" id="Ket-lR-8Vf">
@@ -769,7 +849,7 @@
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qiH-Z7-3tm">
-                                <rect key="frame" x="67" y="110" width="292" height="738"/>
+                                <rect key="frame" x="67" y="110" width="292" height="638"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -1286,4 +1366,7 @@
         <image name="icon-username" width="100" height="100"/>
         <image name="t1" width="371" height="371"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wfV-SS-Zrj"/>
+    </inferredMetricsTieBreakers>
 </document>

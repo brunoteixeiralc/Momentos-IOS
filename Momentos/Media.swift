@@ -32,6 +32,28 @@ class Media{
         
     }
     
+    init(dictionary:[String:Any]){
+        
+        uid = dictionary["uid"] as! String
+        type = dictionary["type"] as! String
+        caption = dictionary["caption"] as! String
+        createdTime = dictionary["createdTime"] as! Double
+        
+        let createdByDict = dictionary["createBy"] as! [String:Any]
+        createdBy = User(dictionary: createdByDict)
+        
+        likes = []
+        if let likesDict = dictionary["likes"] as? [String:Any] {
+            for(_,userDict) in likesDict {
+                if let userDict = userDict as? [String:Any] {
+                    likes.append(User(dictionary: userDict))
+                }
+            }
+        }
+        
+        comments = []
+    }
+    
     func save(completion:@escaping (Error?) -> Void){
         
         let ref = DatabaseReference.media.ref().child(self.uid)
@@ -74,5 +96,23 @@ extension Media{
             completion(mediaImage,error)
         }
     }
-    
 }
+
+extension Media{
+    
+    class func observerMedia(_ completion: @escaping (Media) -> Void){
+        
+        DatabaseReference.media.ref().observe(.childAdded, with: { (snapshot) in
+            let media = Media(dictionary: snapshot.value as! [String:Any])
+            completion(media)
+        })
+    }
+}
+
+extension Media:Equatable{}
+
+func ==(lhs:Media, rhs:Media) -> Bool{
+    return lhs.uid == rhs.uid
+}
+
+

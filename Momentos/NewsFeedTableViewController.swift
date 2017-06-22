@@ -14,10 +14,21 @@ class NewsFeedTableViewController: UITableViewController {
     struct Storyboard {
         static let showWelcome = "ShowWelcomeViewController"
         static let postComposerNVC = "PostComposerNavigationVC"
+        
+        static let mediaCell = "MediaCell"
+        static let mediaHeaderCell = "MediaHeaderCell"
+        static let mediaHeaderHeight: CGFloat = 57
+        static let mediaCellDefaultHeight: CGFloat = 597
+        
+        static let showMediaDetail = "ShowMediaDetailSegue"
+        
+        static let commentCell = "CommentCell"
+        static let showCommentComposer = "ShowCommentComposer"
     }
     
     var imagePickerHelper:ImagePickerHelper!
     var currentUser:User?
+    var media = [Media]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +49,20 @@ class NewsFeedTableViewController: UITableViewController {
         
         self.tabBarController?.delegate = self
 
+        tableView.estimatedRowHeight = Storyboard.mediaCellDefaultHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorColor = UIColor.clear
+        
+        fetchMedia()
+    } 
+    
+    func fetchMedia(){
+        Media.observerMedia { (media) in
+            if !self.media.contains(media){
+                self.media.insert(media, at: 0)
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -62,5 +87,43 @@ extension NewsFeedTableViewController:UITabBarControllerDelegate{
         
         return true
     }
+}
+
+extension NewsFeedTableViewController{
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return media.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if media.count == 0{
+            return 0
+        }else{
+            return 1
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaCell, for: indexPath) as! MediaTableViewCell
+        
+        cell.currentUser = currentUser
+        cell.media = media[indexPath.section]
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaHeaderCell) as! MediaHeaderCell
+        
+        cell.currentUser = currentUser
+        cell.media = media[section]
+        cell.backgroundColor = UIColor.white
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return Storyboard.mediaHeaderHeight
+    }
 }
