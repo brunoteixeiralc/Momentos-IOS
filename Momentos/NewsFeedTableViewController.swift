@@ -9,22 +9,22 @@
 import UIKit
 import Firebase
 
-class NewsFeedTableViewController: UITableViewController {
+public struct Storyboard {
+    static let showWelcome = "ShowWelcomeViewController"
+    static let postComposerNVC = "PostComposerNavigationVC"
+    
+    static let mediaCell = "MediaCell"
+    static let mediaHeaderCell = "MediaHeaderCell"
+    static let mediaHeaderHeight: CGFloat = 57
+    static let mediaCellDefaultHeight: CGFloat = 597
+    
+    static let showMediaDetail = "ShowMediaDetailSegue"
+    
+    static let commentCell = "CommentCell"
+    static let showCommentComposer = "ShowCommentComposer"
+}
 
-    struct Storyboard {
-        static let showWelcome = "ShowWelcomeViewController"
-        static let postComposerNVC = "PostComposerNavigationVC"
-        
-        static let mediaCell = "MediaCell"
-        static let mediaHeaderCell = "MediaHeaderCell"
-        static let mediaHeaderHeight: CGFloat = 57
-        static let mediaCellDefaultHeight: CGFloat = 597
-        
-        static let showMediaDetail = "ShowMediaDetailSegue"
-        
-        static let commentCell = "CommentCell"
-        static let showCommentComposer = "ShowCommentComposer"
-    }
+class NewsFeedTableViewController: UITableViewController {
     
     var imagePickerHelper:ImagePickerHelper!
     var currentUser:User?
@@ -61,6 +61,16 @@ class NewsFeedTableViewController: UITableViewController {
             if !self.media.contains(media){
                 self.media.insert(media, at: 0)
                 self.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Storyboard.showMediaDetail{
+            let mediaDetailTVC = segue.destination as! MediaDetailTableViewController
+            if let selectedIndex = tableView.indexPathForSelectedRow{
+                mediaDetailTVC.currentUser = currentUser!
+                mediaDetailTVC.media = media[selectedIndex.section]
             }
         }
     }
@@ -125,5 +135,9 @@ extension NewsFeedTableViewController{
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Storyboard.mediaHeaderHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: nil)
     }
 }

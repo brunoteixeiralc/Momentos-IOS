@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SAMCache
 
 class MediaTableViewCell: UITableViewCell {
 
@@ -19,6 +20,7 @@ class MediaTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfLikesButtom:UIButton!
     @IBOutlet weak var viewAllCommenstButtom:UIButton!
     
+    var cache = SAMCache.shared()
     var currentUser:User!
     var media:Media! {
         didSet{
@@ -31,8 +33,14 @@ class MediaTableViewCell: UITableViewCell {
     func updateUI(){
         
         self.mediaImageView.image = nil
-        media.downloadMediaImage { [weak self](image, error) in
-            self?.mediaImageView.image = image
+        
+        if let image = self.cache?.object(forKey: "\(media.uid)-mediaImage") as? UIImage{
+            self.mediaImageView.image = image
+        }else{
+            media.downloadMediaImage { [weak self](image, error) in
+                self?.mediaImageView.image = image
+                self?.cache?.setObject(image, forKey: "\(String(describing: self?.media.uid))-mediaImage")
+            }
         }
         
         captionLabel.text = media.caption

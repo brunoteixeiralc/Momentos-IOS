@@ -25,6 +25,7 @@
 		F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */; };
 		F44AF38E1EAEF4B000925B61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38D1EAEF4B000925B61 /* User.swift */; };
 		F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */; };
+		F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */; };
 		F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */; };
 		F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */; };
 		F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */; };
@@ -56,6 +57,7 @@
 		F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseReference.swift; path = ../FirebaseReference.swift; sourceTree = "<group>"; };
 		F44AF38D1EAEF4B000925B61 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImage.swift; sourceTree = "<group>"; };
+		F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailTableViewController.swift; sourceTree = "<group>"; };
 		F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHeaderCell.swift; sourceTree = "<group>"; };
 		F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -152,6 +154,25 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		F45FFF6D1EFC9E4100D813FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */,
+				F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */,
+				F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F45FFF6E1EFC9E5000D813FF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
+				F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		F4C2755D1EC3E37900A032D7 /* User Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,10 +186,8 @@
 		F4C2755E1EC3E38E00A032D7 /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
-				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
-				F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */,
-				F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */,
-				F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */,
+				F45FFF6E1EFC9E5000D813FF /* Controllers */,
+				F45FFF6D1EFC9E4100D813FF /* Views */,
 			);
 			name = Newsfeed;
 			sourceTree = "<group>";
@@ -225,6 +244,7 @@
 					F44742261EA58833001B7701 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = RREN52MQC8;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -335,6 +355,7 @@
 				F44AF38E1EAEF4B000925B61 /* User.swift in Sources */,
 				F40054E31EBAC28B00CE46D6 /* WelcomeViewController.swift in Sources */,
 				F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */,
+				F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */,
 				F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */,
 				F4065F131EE8D25900D04E4F /* Comments.swift in Sources */,
 			);

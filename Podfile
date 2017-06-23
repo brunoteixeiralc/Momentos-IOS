@@ -14,4 +14,8 @@ pod 'VENTokenField'
 
 pod 'JSQMessagesViewController'
 
+pod 'FacebookCore'
+pod 'FacebookLogin'
+pod 'FacebookShare'
+
 end

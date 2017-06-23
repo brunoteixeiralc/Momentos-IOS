@@ -21,7 +21,7 @@ class User {
     var follows:[User]
     var followedBy: [User]
     
-    init(uid:String,userName:String,fullName:String,bio:String,website:String,profileImage:UIImage,follows:[User],followedBy:[User]) {
+    init(uid:String,userName:String,fullName:String,bio:String,website:String,profileImage:UIImage?,follows:[User],followedBy:[User]) {
         
         self.uid = uid
         self.userName = userName
@@ -108,7 +108,7 @@ extension User {
         
         FIRImage.downloadProfileImage(uid: uid) { (image, error) in
             self.profileImage = image
-            completion(image,error! as NSError)
+            completion(image,error as NSError?)
         }
         
     }
