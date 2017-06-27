@@ -59,5 +59,20 @@ class MediaHeaderCell: UITableViewCell {
     }
     
    }
+    
+   @IBAction func followDidTap(){
+      followButtom.layer.borderWidth = 1
+      followButtom.layer.cornerRadius = 2.0
+      followButtom.layer.borderColor = followButtom.tintColor.cgColor
+      followButtom.layer.masksToBounds = true
+        
+      if currentUser.follows.contains(media.createdBy){
+            followButtom.setTitle("  Seguir  ", for: [])
+            currentUser.unfollow(user: media.createdBy)
+      }else{
+            followButtom.setTitle("  Seguindo  ", for: [])
+            currentUser.follow(user: media.createdBy)
+    }
+  }
 
 }

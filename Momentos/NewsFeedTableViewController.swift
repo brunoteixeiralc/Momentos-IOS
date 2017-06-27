@@ -72,6 +72,11 @@ class NewsFeedTableViewController: UITableViewController {
                 mediaDetailTVC.currentUser = currentUser!
                 mediaDetailTVC.media = media[selectedIndex.section]
             }
+        }else if segue.identifier == Storyboard.showCommentComposer{
+            let commentComposer = segue.destination as! CommentComposerViewController
+            let selectedMedia = sender as! Media
+            commentComposer.currentUser = currentUser
+            commentComposer.media = selectedMedia
         }
     }
 }
@@ -119,6 +124,7 @@ extension NewsFeedTableViewController{
         cell.currentUser = currentUser
         cell.media = media[indexPath.section]
         cell.selectionStyle = .none
+        cell.delegate = self
         
         return cell
     }
@@ -141,3 +147,12 @@ extension NewsFeedTableViewController{
         self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: nil)
     }
 }
+
+extension NewsFeedTableViewController:MediaTableViewCellDelegate{
+    
+    func commentDidTap(media: Media) {
+        self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)
+
+    }
+}
+

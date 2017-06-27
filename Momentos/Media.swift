@@ -91,21 +91,34 @@ class Media{
 extension Media{
     
     func downloadMediaImage(completion: @escaping (UIImage?,Error?) -> Void){
-        
         FIRImage.downloadImage(uid: uid) { (mediaImage, error) in
             completion(mediaImage,error)
         }
     }
-}
-
-extension Media{
     
     class func observerMedia(_ completion: @escaping (Media) -> Void){
-        
         DatabaseReference.media.ref().observe(.childAdded, with: { (snapshot) in
             let media = Media(dictionary: snapshot.value as! [String:Any])
             completion(media)
         })
+    }
+    
+    func observeNewComment(_ completion :@escaping (Comments) -> Void){
+        DatabaseReference.media.ref().child(uid).child("comments").observe(.childAdded, with: { (snapshot) in
+            let comment = Comments(dictionary: snapshot.value as! [String:Any])
+            completion(comment)
+        })
+    }
+    
+    func likedBy(user:User){
+        DatabaseReference.media.ref().child(uid).child("likes").child(user.uid).setValue(user.toDictionary())
+    }
+    
+    func unlikedBy(user:User){
+        if let index = likes.index(of: user){
+            likes.remove(at: index)
+            DatabaseReference.media.ref().child(uid).child("likes").child(user.uid).setValue(nil)
+        }
     }
 }
 

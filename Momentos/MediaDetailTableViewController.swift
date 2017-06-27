@@ -26,6 +26,30 @@ class MediaDetailTableViewController: UITableViewController {
         
         comments = media.comments
         tableView.reloadData()
+        
+        self.fetchComments()
+    }
+    
+    func fetchComments(){
+        media.observeNewComment { (comment) in
+            if !self.comments.contains(comment){
+                self.comments.insert(comment, at: 0)
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func commentDidTap(){
+        self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Storyboard.showCommentComposer{
+            let commmentComposer = segue.destination as! CommentComposerViewController
+            commmentComposer.media = media
+            commmentComposer.currentUser = currentUser
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

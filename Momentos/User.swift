@@ -105,13 +105,24 @@ extension User {
     }
     
     func downloadProfilePicture(completion: @escaping (UIImage?,NSError?) -> Void){
-        
         FIRImage.downloadProfileImage(uid: uid) { (image, error) in
             self.profileImage = image
             completion(image,error as NSError?)
         }
-        
     }
+    
+    func follow(user:User){
+        self.follows.append(user)
+        DatabaseReference.user(uid: uid).ref().child("follows").child(user.uid).setValue(user.toDictionary())
+    }
+    
+    func unfollow(user:User){
+        if let index = follows.index(of: user){
+            follows.remove(at: index)
+            DatabaseReference.user(uid: uid).ref().child("follows").child(user.uid).setValue(nil)
+        }
+    }
+
 }
 
 extension User:Equatable{}

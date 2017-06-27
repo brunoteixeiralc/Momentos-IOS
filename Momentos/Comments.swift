@@ -57,3 +57,9 @@ class Comments{
     }
     
 }
+
+extension Comments:Equatable{}
+
+func ==(lhs:Comments, rhs:Comments) -> Bool{
+    return lhs.uid == rhs.uid
+}

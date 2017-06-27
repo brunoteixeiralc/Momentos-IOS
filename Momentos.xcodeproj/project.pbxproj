@@ -26,6 +26,7 @@
 		F44AF38E1EAEF4B000925B61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38D1EAEF4B000925B61 /* User.swift */; };
 		F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */; };
 		F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */; };
+		F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */; };
 		F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */; };
 		F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */; };
 		F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 		F44AF38D1EAEF4B000925B61 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImage.swift; sourceTree = "<group>"; };
 		F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailTableViewController.swift; sourceTree = "<group>"; };
+		F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentComposerViewController.swift; sourceTree = "<group>"; };
 		F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHeaderCell.swift; sourceTree = "<group>"; };
 		F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
 				F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */,
+				F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */,
 				F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */,
 				F4065F131EE8D25900D04E4F /* Comments.swift in Sources */,
+				F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
