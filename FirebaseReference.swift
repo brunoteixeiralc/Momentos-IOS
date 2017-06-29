@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-enum DatabaseReference {
+enum DatabaseRef {
     
     case root
     case user(uid: String)
@@ -17,12 +17,12 @@ enum DatabaseReference {
     case chats
     case messages
     
-    func ref() -> FIRDatabaseReference {
+    func ref() -> DatabaseReference {
         return rootRef.child(path)
     }
     
-    private var rootRef: FIRDatabaseReference {
-        return FIRDatabase.database().reference()
+    private var rootRef: DatabaseReference {
+        return Database.database().reference()
     }
     
     private var path:String {
@@ -43,18 +43,18 @@ enum DatabaseReference {
     }
 }
 
-enum StorageReference {
+enum StorageRef {
     
     case root
     case images
     case profileImages
     
-    func ref() -> FIRStorageReference {
+    func ref() -> StorageReference {
         return baseRef.child(path)
     }
     
-    private var baseRef:FIRStorageReference {
-        return FIRStorage.storage().reference()
+    private var baseRef:StorageReference {
+        return Storage.storage().reference()
     }
     
     private var path:String {

@@ -27,6 +27,7 @@
 		F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */; };
 		F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */; };
 		F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */; };
+		F45FFF741F047D2500D813FF /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */; };
 		F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */; };
 		F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */; };
 		F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImage.swift; sourceTree = "<group>"; };
 		F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailTableViewController.swift; sourceTree = "<group>"; };
 		F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentComposerViewController.swift; sourceTree = "<group>"; };
+		F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
 		F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHeaderCell.swift; sourceTree = "<group>"; };
 		F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				F40054E01EBAC26300CE46D6 /* SignUpTableViewController.swift */,
 				F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */,
 				F40054E21EBAC28B00CE46D6 /* WelcomeViewController.swift */,
+				F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */,
 			);
 			name = "User Authentication";
 			sourceTree = "<group>";
@@ -250,7 +253,13 @@
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -354,6 +363,7 @@
 				F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */,
 				F447422B1EA58833001B7701 /* AppDelegate.swift in Sources */,
 				F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */,
+				F45FFF741F047D2500D813FF /* PhoneAuthViewController.swift in Sources */,
 				F40054DF1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift in Sources */,
 				F44AF38E1EAEF4B000925B61 /* User.swift in Sources */,
 				F40054E31EBAC28B00CE46D6 /* WelcomeViewController.swift in Sources */,
@@ -486,11 +496,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Momentos/Momentos.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RREN52MQC8;
 				INFOPLIST_FILE = Momentos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Momentos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -501,11 +513,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Momentos/Momentos.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RREN52MQC8;
 				INFOPLIST_FILE = Momentos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Momentos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

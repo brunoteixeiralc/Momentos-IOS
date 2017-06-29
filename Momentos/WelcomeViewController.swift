@@ -22,7 +22,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true);
         
-        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        Auth.auth().addStateDidChangeListener({ (auth, user) in
             if user != nil{
                 self.dismiss(animated: false, completion: nil)
             }else{
@@ -57,9 +57,9 @@ class WelcomeViewController: UIViewController {
                 return
             }
             
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
             
-            FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
                     print("Login error: \(error.localizedDescription)")
                     self.alert(title: "Momentos Login", message: "Oops...erro ao entrar com o FB", buttonTitle: "OK")

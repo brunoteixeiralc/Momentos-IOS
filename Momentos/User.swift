@@ -64,7 +64,7 @@ class User {
 
     func save(completion:@escaping (Error?) -> Void){
         
-        let ref = DatabaseReference.user(uid:uid).ref()
+        let ref = DatabaseRef.user(uid:uid).ref()
         ref.setValue(toDictionary())
         
         for user in follows{
@@ -101,7 +101,7 @@ class User {
 extension User {
     
     func share(newMedia:Media){
-        DatabaseReference.user(uid: uid).ref().child("media").childByAutoId().setValue(newMedia.uid)
+        DatabaseRef.user(uid: uid).ref().child("media").childByAutoId().setValue(newMedia.uid)
     }
     
     func downloadProfilePicture(completion: @escaping (UIImage?,NSError?) -> Void){
@@ -113,13 +113,13 @@ extension User {
     
     func follow(user:User){
         self.follows.append(user)
-        DatabaseReference.user(uid: uid).ref().child("follows").child(user.uid).setValue(user.toDictionary())
+        DatabaseRef.user(uid: uid).ref().child("follows").child(user.uid).setValue(user.toDictionary())
     }
     
     func unfollow(user:User){
         if let index = follows.index(of: user){
             follows.remove(at: index)
-            DatabaseReference.user(uid: uid).ref().child("follows").child(user.uid).setValue(nil)
+            DatabaseRef.user(uid: uid).ref().child("follows").child(user.uid).setValue(nil)
         }
     }
 

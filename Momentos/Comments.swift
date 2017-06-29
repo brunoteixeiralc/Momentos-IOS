@@ -16,7 +16,7 @@ class Comments{
     var createdTime:Double
     var from:User
     var caption:String
-    var ref:FIRDatabaseReference
+    var ref:DatabaseReference
     
     init(mediaUid:String,from:User,caption:String) {
         self.mediaUid = mediaUid
@@ -24,7 +24,7 @@ class Comments{
         self.caption = caption
         
         self.createdTime = Date().timeIntervalSince1970
-        ref = DatabaseReference.media.ref().child(mediaUid).child("comments").childByAutoId()
+        ref = DatabaseRef.media.ref().child(mediaUid).child("comments").childByAutoId()
         uid = ref.key
     }
     
@@ -38,7 +38,7 @@ class Comments{
         from = User(dictionary: fromDictionary)
         
         mediaUid = dictionary["mediaUid"] as! String
-        ref = DatabaseReference.media.ref().child(mediaUid).child("comments").child(uid)
+        ref = DatabaseRef.media.ref().child(mediaUid).child("comments").child(uid)
     }
     
     func save(){

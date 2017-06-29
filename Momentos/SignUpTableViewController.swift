@@ -48,7 +48,7 @@ class SignUpTableViewController: UITableViewController {
             let username = usernameTextField.text!
             let fullname = fullNameTextFields.text!
             
-            FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (firuser, error) in
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (firuser, error) in
                 if(error != nil){
                     
                 }else if let firuser = firuser{
@@ -58,7 +58,7 @@ class SignUpTableViewController: UITableViewController {
                         if error != nil{
                             
                         }else{
-                            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (firuser, error) in
+                            Auth.auth().signIn(withEmail: email, password: password, completion: { (firuser, error) in
                                 if error != nil{
                                     
                                 }else{

@@ -33,10 +33,10 @@ class NewsFeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        Auth.auth().addStateDidChangeListener({ (auth, user) in
             
             if user != nil{
-                DatabaseReference.user(uid: (user?.uid)!).ref().observeSingleEvent(of: .value, with: { (snapshot) in
+                DatabaseRef.user(uid: (user?.uid)!).ref().observeSingleEvent(of: .value, with: { (snapshot) in
                     if let userDict = snapshot.value as? [String:Any]{
                         self.currentUser = User(dictionary: userDict)
                     }
