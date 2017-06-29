@@ -63,6 +63,8 @@ class MediaTableViewCell: UITableViewCell {
         
         if media.comments.count == 0{
             viewAllCommenstButtom.setTitle("Seja o primeiro a fazer um comentário", for: [])
+        }else if media.comments.count == 1{
+            viewAllCommenstButtom.setTitle("Veja o primeiro comentário", for: [])
         }else{
             viewAllCommenstButtom.setTitle("Veja os \(media.comments.count) comentários", for: [])
         }

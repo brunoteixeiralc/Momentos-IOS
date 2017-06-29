@@ -33,6 +33,7 @@
 		F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */; };
 		F4C275611EC3E3CE00A032D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */; };
 		F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */; };
+		F4D944C01F055F6B00302E10 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F4D944BF1F055F6B00302E10 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F4D944BF1F055F6B00302E10 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		F447421E1EA58833001B7701 = {
 			isa = PBXGroup;
 			children = (
+				F4D944BF1F055F6B00302E10 /* .gitignore */,
 				F44AF3851EAEEB5E00925B61 /* Podfile */,
 				F44742291EA58833001B7701 /* Momentos */,
 				F44742281EA58833001B7701 /* Products */,
@@ -293,6 +296,7 @@
 				F44742321EA58833001B7701 /* Assets.xcassets in Resources */,
 				F44AF3881EAEEE1000925B61 /* GoogleService-Info.plist in Resources */,
 				F44AF3861EAEEB5E00925B61 /* Podfile in Resources */,
+				F4D944C01F055F6B00302E10 /* .gitignore in Resources */,
 				F44742301EA58833001B7701 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,7 +316,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D9806D540D792E8EF8562CB0 /* [CP] Copy Pods Resources */ = {
