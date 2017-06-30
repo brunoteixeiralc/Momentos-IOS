@@ -8,6 +8,7 @@
 
 import UIKit
 import SAMCache
+import Lottie
 
 protocol MediaTableViewCellDelegate: class {
     func commentDidTap(media: Media)
@@ -27,6 +28,8 @@ class MediaTableViewCell: UITableViewCell {
     var cache = SAMCache.shared()
     weak var delegate: MediaTableViewCellDelegate?
     
+    let animationView = LOTAnimationView(name: "like")
+    
     var currentUser:User!
     var media:Media! {
         didSet{
@@ -37,6 +40,10 @@ class MediaTableViewCell: UITableViewCell {
     }
     
     func updateUI(){
+        
+//        animationView.frame = CGRect(x: 0, y: 330, width: 61, height: 62)
+//        self.animationView.isHidden = true
+//        addSubview(animationView)
         
         self.mediaImageView.image = nil
         
@@ -75,8 +82,14 @@ class MediaTableViewCell: UITableViewCell {
             likeButtom.setImage(UIImage(named: "icon-like"), for: [])
             media.unlikedBy(user: currentUser)
         }else{
-            likeButtom.setImage(UIImage(named: "icon-like-filled"), for: [])
             media.likedBy(user: currentUser)
+            self.likeButtom.setImage(UIImage(named: "icon-like-filled"), for: [])
+            
+//            self.animationView.isHidden = false
+//            animationView.play(completion: { finished in
+//                self.likeButtom.setImage(UIImage(named: "icon-like-filled"), for: [])
+//                self.animationView.isHidden = true
+//            })
         }
     }
     

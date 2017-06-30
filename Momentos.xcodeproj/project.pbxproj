@@ -34,6 +34,7 @@
 		F4C275611EC3E3CE00A032D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */; };
 		F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */; };
 		F4D944C01F055F6B00302E10 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F4D944BF1F055F6B00302E10 /* .gitignore */; };
+		F4D944C21F06C19700302E10 /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = F4D944C11F06C19700302E10 /* like.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F4D944BF1F055F6B00302E10 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F4D944C11F06C19700302E10 /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		F44742291EA58833001B7701 /* Momentos */ = {
 			isa = PBXGroup;
 			children = (
+				F4D944C11F06C19700302E10 /* like.json */,
 				F40054E61EBAD7C800CE46D6 /* Momentos.entitlements */,
 				F447422A1EA58833001B7701 /* AppDelegate.swift */,
 				F44AF38C1EAEF49B00925B61 /* Model */,
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44742351EA58833001B7701 /* LaunchScreen.storyboard in Resources */,
+				F4D944C21F06C19700302E10 /* like.json in Resources */,
 				F44742321EA58833001B7701 /* Assets.xcassets in Resources */,
 				F44AF3881EAEEE1000925B61 /* GoogleService-Info.plist in Resources */,
 				F44AF3861EAEEB5E00925B61 /* Podfile in Resources */,

@@ -18,6 +18,8 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 
+pod 'lottie-ios'
+
 end
 
 post_install do |installer|

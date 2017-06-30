@@ -11,6 +11,8 @@ import Firebase
 
 class MediaDetailTableViewController: UITableViewController {
     
+    @IBOutlet weak var likeButtom:UIBarButtonItem!
+    
     var media:Media!
     var currentUser:User!
     var comments = [Comments]()
@@ -28,6 +30,10 @@ class MediaDetailTableViewController: UITableViewController {
         tableView.reloadData()
         
         self.fetchComments()
+        
+        if media.likes.contains(currentUser){
+           likeButtom.image = UIImage(named: "icon-like-filled-2")
+        }
     }
     
     func fetchComments(){
@@ -38,6 +44,17 @@ class MediaDetailTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func likesDidTap(){
+        if media.likes.contains(currentUser){
+            likeButtom.image = UIImage(named: "icon-like")
+            media.unlikedBy(user: currentUser)
+        }else{
+            likeButtom.image = UIImage(named: "icon-like-filled-2")
+            media.likedBy(user: currentUser)
+        }
+    }
+    
     
     @IBAction func commentDidTap(){
         self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)

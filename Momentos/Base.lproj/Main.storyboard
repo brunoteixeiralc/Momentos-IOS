@@ -767,6 +767,18 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZh-bv-vy9">
+                                            <rect key="frame" x="338" y="389" width="21" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="21" id="HZG-cO-hWF"/>
+                                                <constraint firstAttribute="height" constant="22" id="Suw-jx-X67"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" image="icon-more"/>
+                                            <connections>
+                                                <action selector="commentDidTap" destination="vec-5C-gba" eventType="touchUpInside" id="Mo0-bB-WoW"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="qZ5-SI-B2c" firstAttribute="top" secondItem="4mI-7A-q1B" secondAttribute="bottom" constant="8" id="1nY-Jd-Ga0"/>
@@ -780,6 +792,7 @@
                                         <constraint firstItem="I4x-p6-pPR" firstAttribute="leading" secondItem="DEc-ke-EO3" secondAttribute="leading" id="NmO-8t-3oJ"/>
                                         <constraint firstItem="h8K-yf-pZ2" firstAttribute="top" secondItem="BOL-UW-J7b" secondAttribute="bottom" constant="16.5" id="Vjv-74-jxS"/>
                                         <constraint firstItem="BOL-UW-J7b" firstAttribute="leading" secondItem="DEc-ke-EO3" secondAttribute="leading" constant="12" id="WWd-8v-vID"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="IZh-bv-vy9" secondAttribute="trailing" constant="8" id="bex-fC-7p4"/>
                                         <constraint firstItem="Mp0-x0-IzS" firstAttribute="leading" secondItem="DEc-ke-EO3" secondAttribute="leading" constant="12" id="ea4-tR-ap2"/>
                                         <constraint firstAttribute="bottom" secondItem="bpc-ui-J8g" secondAttribute="bottom" constant="9.5" id="n7z-NM-Jdf"/>
                                         <constraint firstItem="4mI-7A-q1B" firstAttribute="top" secondItem="I4x-p6-pPR" secondAttribute="bottom" constant="14" id="nU7-GG-3Xo"/>
@@ -787,6 +800,7 @@
                                         <constraint firstItem="bpc-ui-J8g" firstAttribute="leading" secondItem="DEc-ke-EO3" secondAttribute="leading" constant="12" id="sKQ-TD-bw7"/>
                                         <constraint firstItem="I4x-p6-pPR" firstAttribute="top" secondItem="DEc-ke-EO3" secondAttribute="top" id="uck-VO-8mr"/>
                                         <constraint firstItem="BOL-UW-J7b" firstAttribute="top" secondItem="Mp0-x0-IzS" secondAttribute="bottom" constant="8" id="un0-Wy-9sU"/>
+                                        <constraint firstItem="qZ5-SI-B2c" firstAttribute="top" secondItem="IZh-bv-vy9" secondAttribute="bottom" constant="8" id="vwb-G0-BfU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1061,11 +1075,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Momentos" id="ZEG-aE-tRp">
-                        <barButtonItem key="rightBarButtonItem" image="icon-like" id="R1Z-ic-tPB"/>
+                        <barButtonItem key="rightBarButtonItem" image="icon-like" id="R1Z-ic-tPB">
+                            <connections>
+                                <action selector="likesDidTap" destination="mke-2L-o0v" id="gdC-uA-Btg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="likeButtom" destination="R1Z-ic-tPB" id="rhZ-Hg-pU1"/>
                         <segue destination="8lM-1n-zCM" kind="show" identifier="ShowCommentComposer" id="5Dj-bO-BO8"/>
                     </connections>
                 </tableViewController>
@@ -1620,6 +1639,7 @@
         <image name="icon-inbox" width="23" height="18"/>
         <image name="icon-inbox-filled" width="23" height="18"/>
         <image name="icon-like" width="21" height="18"/>
+        <image name="icon-more" width="23" height="7"/>
         <image name="icon-password" width="100" height="100"/>
         <image name="icon-profile" width="25" height="25"/>
         <image name="icon-profile-filled" width="25" height="25"/>
