@@ -22,10 +22,13 @@ class CommentsTableViewCell: UITableViewCell {
     }
     
     func updateUI(){
-      
-        profileImageView.image = UIImage(named:"icon-defaultAvatar")
+
         comment.from.downloadProfilePicture { [weak self](image, error) in
-            self?.profileImageView.image = image
+            if image == nil{
+                self?.profileImageView.image = UIImage(named:"icon-defaultAvatar")
+            }else{
+                self?.profileImageView.image = image
+            }
         }
         
         profileImageView.layer.cornerRadius = profileImageView.bounds.width/2.0

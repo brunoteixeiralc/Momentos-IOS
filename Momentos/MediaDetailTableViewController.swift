@@ -109,3 +109,4 @@ class MediaDetailTableViewController: UITableViewController {
         return Storyboard.mediaHeaderHeight
     }
 }
+

@@ -18,7 +18,7 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 
-pod 'lottie-ios'
+pod 'lottie-ios','1.5.1'
 
 end
 

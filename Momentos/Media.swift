@@ -123,6 +123,7 @@ extension Media{
     }
     
     func likedBy(user:User){
+        likes.append(user)
         DatabaseRef.media.ref().child(uid).child("likes").child(user.uid).setValue(user.toDictionary())
     }
     

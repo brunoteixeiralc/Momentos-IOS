@@ -41,9 +41,8 @@ class MediaTableViewCell: UITableViewCell {
     
     func updateUI(){
         
-//        animationView.frame = CGRect(x: 0, y: 330, width: 61, height: 62)
-//        self.animationView.isHidden = true
-//        addSubview(animationView)
+        animationView?.frame = CGRect(x: 0, y: 0, width: 201, height: 201)
+        animationView?.center = mediaImageView.center
         
         self.mediaImageView.image = nil
         
@@ -61,11 +60,13 @@ class MediaTableViewCell: UITableViewCell {
         
         if media.likes.count == 0{
             numberOfLikesButtom.setTitle("Seja o primeiro a gostar deste momento", for: [])
+        }else if media.likes.count == 1{
+            numberOfLikesButtom.setTitle("♥️ \(media.likes.count) gostou", for: [])
         }else{
             numberOfLikesButtom.setTitle("♥️ \(media.likes.count) gostaram", for: [])
-            if media.likes.contains(currentUser){
-                likeButtom.setImage(UIImage(named:"icon-like-filled"), for: [])
-            }
+        }
+        if media.likes.contains(currentUser){
+            likeButtom.setImage(UIImage(named:"icon-like-filled"), for: [])
         }
         
         if media.comments.count == 0{
@@ -85,11 +86,11 @@ class MediaTableViewCell: UITableViewCell {
             media.likedBy(user: currentUser)
             self.likeButtom.setImage(UIImage(named: "icon-like-filled"), for: [])
             
-//            self.animationView.isHidden = false
-//            animationView.play(completion: { finished in
-//                self.likeButtom.setImage(UIImage(named: "icon-like-filled"), for: [])
-//                self.animationView.isHidden = true
-//            })
+            animationView?.animationProgress = 0.0
+            addSubview((animationView)!)
+            animationView?.play(completion: { finished in
+                self.animationView?.removeFromSuperview()
+            })
         }
     }
     
