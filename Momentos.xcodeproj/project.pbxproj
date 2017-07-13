@@ -21,6 +21,7 @@
 		F412086F1F0B32E000D2F5BE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F412086E1F0B32E000D2F5BE /* Message.swift */; };
 		F41208711F0B3C3A00D2F5BE /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41208701F0B3C3A00D2F5BE /* ChatTableViewCell.swift */; };
 		F41208731F0B3DFA00D2F5BE /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41208721F0B3DFA00D2F5BE /* ContactTableViewCell.swift */; };
+		F41208751F16FA4600D2F5BE /* ContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41208741F16FA4600D2F5BE /* ContactsPickerViewController.swift */; };
 		F447422B1EA58833001B7701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F447422A1EA58833001B7701 /* AppDelegate.swift */; };
 		F44742301EA58833001B7701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F447422E1EA58833001B7701 /* Main.storyboard */; };
 		F44742321EA58833001B7701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44742311EA58833001B7701 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		F412086E1F0B32E000D2F5BE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F41208701F0B3C3A00D2F5BE /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		F41208721F0B3DFA00D2F5BE /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		F41208741F16FA4600D2F5BE /* ContactsPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsPickerViewController.swift; sourceTree = "<group>"; };
 		F44742271EA58833001B7701 /* Momentos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Momentos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F447422A1EA58833001B7701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F447422F1EA58833001B7701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				F412086E1F0B32E000D2F5BE /* Message.swift */,
 				F41208701F0B3C3A00D2F5BE /* ChatTableViewCell.swift */,
 				F41208721F0B3DFA00D2F5BE /* ContactTableViewCell.swift */,
+				F41208741F16FA4600D2F5BE /* ContactsPickerViewController.swift */,
 			);
 			name = Messenger;
 			sourceTree = "<group>";
@@ -279,7 +282,6 @@
 				TargetAttributes = {
 					F44742261EA58833001B7701 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = RREN52MQC8;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -389,6 +391,7 @@
 				F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */,
 				F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */,
 				F4065F161EE8DFD800D04E4F /* DummyPostComposerViewController.swift in Sources */,
+				F41208751F16FA4600D2F5BE /* ContactsPickerViewController.swift in Sources */,
 				F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */,
 				F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */,
 				F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */,
@@ -533,7 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Momentos/Momentos.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = RREN52MQC8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Momentos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Momentos;
@@ -550,7 +553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Momentos/Momentos.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = RREN52MQC8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Momentos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.Momentos;
