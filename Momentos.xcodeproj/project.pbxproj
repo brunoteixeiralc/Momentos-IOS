@@ -31,6 +31,8 @@
 		F44AF38A1EAEEF2E00925B61 /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */; };
 		F44AF38E1EAEF4B000925B61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38D1EAEF4B000925B61 /* User.swift */; };
 		F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */; };
+		F44F50BE1F1B9FDB009CF0CC /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F50BD1F1B9FDB009CF0CC /* ChatViewController.swift */; };
+		F44F50C01F1BD21B009CF0CC /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44F50BF1F1BD21B009CF0CC /* InboxViewController.swift */; };
 		F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */; };
 		F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */; };
 		F45FFF741F047D2500D813FF /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */; };
@@ -73,6 +75,8 @@
 		F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseReference.swift; path = ../FirebaseReference.swift; sourceTree = "<group>"; };
 		F44AF38D1EAEF4B000925B61 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImage.swift; sourceTree = "<group>"; };
+		F44F50BD1F1B9FDB009CF0CC /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		F44F50BF1F1BD21B009CF0CC /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailTableViewController.swift; sourceTree = "<group>"; };
 		F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentComposerViewController.swift; sourceTree = "<group>"; };
 		F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
@@ -128,11 +132,8 @@
 		F412086B1F0B2C2B00D2F5BE /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				F412086C1F0B2C4400D2F5BE /* Chat.swift */,
-				F412086E1F0B32E000D2F5BE /* Message.swift */,
-				F41208701F0B3C3A00D2F5BE /* ChatTableViewCell.swift */,
-				F41208721F0B3DFA00D2F5BE /* ContactTableViewCell.swift */,
-				F41208741F16FA4600D2F5BE /* ContactsPickerViewController.swift */,
+				F44F50C21F1BD317009CF0CC /* Controller */,
+				F44F50C11F1BD311009CF0CC /* Views */,
 			);
 			name = Messenger;
 			sourceTree = "<group>";
@@ -182,6 +183,8 @@
 		F44AF38C1EAEF49B00925B61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F412086C1F0B2C4400D2F5BE /* Chat.swift */,
+				F412086E1F0B32E000D2F5BE /* Message.swift */,
 				F44AF3891EAEEF2E00925B61 /* FirebaseReference.swift */,
 				F44AF38D1EAEF4B000925B61 /* User.swift */,
 				F4065F101EE8CF2F00D04E4F /* Media.swift */,
@@ -189,6 +192,25 @@
 				F44AF38F1EAEF8FC00925B61 /* FIRImage.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F44F50C11F1BD311009CF0CC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F41208701F0B3C3A00D2F5BE /* ChatTableViewCell.swift */,
+				F41208721F0B3DFA00D2F5BE /* ContactTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F44F50C21F1BD317009CF0CC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F44F50BD1F1B9FDB009CF0CC /* ChatViewController.swift */,
+				F41208741F16FA4600D2F5BE /* ContactsPickerViewController.swift */,
+				F44F50BF1F1BD21B009CF0CC /* InboxViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		F45FFF6D1EFC9E4100D813FF /* Views */ = {
@@ -408,6 +430,8 @@
 				F412086D1F0B2C4400D2F5BE /* Chat.swift in Sources */,
 				F412086F1F0B32E000D2F5BE /* Message.swift in Sources */,
 				F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */,
+				F44F50C01F1BD21B009CF0CC /* InboxViewController.swift in Sources */,
+				F44F50BE1F1B9FDB009CF0CC /* ChatViewController.swift in Sources */,
 				F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */,
 				F4065F131EE8D25900D04E4F /* Comments.swift in Sources */,
 				F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */,
