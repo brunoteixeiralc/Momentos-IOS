@@ -122,6 +122,10 @@ extension User {
             DatabaseRef.user(uid: uid).ref().child("follows").child(user.uid).setValue(nil)
         }
     }
+    
+    func save(new chat:Chat){
+        DatabaseRef.user(uid: self.uid).ref().child("chatIds").child(chat.uid)
+    }
 
 }
 

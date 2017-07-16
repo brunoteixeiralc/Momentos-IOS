@@ -39,7 +39,7 @@ class Message{
         uid = dictionary["uid"] as! String
         ref = DatabaseRef.messages.ref().child(uid)
         senderDisplayName = dictionary["senderDisplayName"] as! String
-        senderUID = dictionary["sendUID"] as! String
+        senderUID = dictionary["senderUID"] as! String
         lastUpdate = Date(timeIntervalSince1970: dictionary["lastUpdate"] as! Double)
         type = dictionary["type"] as! String
         text = dictionary["text"] as! String

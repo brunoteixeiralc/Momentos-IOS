@@ -147,6 +147,19 @@ class ContactsPickerViewController: UITableViewController {
         
         return nil
      }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Storyboard.showChatViewController{
+            let chat = sender as! Chat
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.senderId = currentUser.uid
+            chatVC.senderDisplayName = currentUser.fullName
+            
+            chatVC.chat = chat
+            chatVC.currentUser = self.currentUser
+            chatVC.hidesBottomBarWhenPushed = true
+        }
+    }
 
 }
 
