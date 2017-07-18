@@ -161,12 +161,12 @@
 		F44742291EA58833001B7701 /* Momentos */ = {
 			isa = PBXGroup;
 			children = (
-				F412086B1F0B2C2B00D2F5BE /* Messenger */,
 				F4D944C11F06C19700302E10 /* like.json */,
 				F40054E61EBAD7C800CE46D6 /* Momentos.entitlements */,
 				F447422A1EA58833001B7701 /* AppDelegate.swift */,
-				F44AF38C1EAEF49B00925B61 /* Model */,
 				F447422E1EA58833001B7701 /* Main.storyboard */,
+				F412086B1F0B2C2B00D2F5BE /* Messenger */,
+				F44AF38C1EAEF49B00925B61 /* Model */,
 				F4C2755E1EC3E38E00A032D7 /* Newsfeed */,
 				F4C2755D1EC3E37900A032D7 /* User Authentication */,
 				F4C2755F1EC3E39D00A032D7 /* Helper Classes */,
