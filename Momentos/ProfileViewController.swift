@@ -18,20 +18,27 @@ class ProfileViewController: UITableViewController {
     @IBOutlet weak var followTextField: UITextField!
     @IBOutlet weak var followerTextField: UITextField!
     
-    
-    var currentUser:User!{
-        didSet{
-            if currentUser != nil{
-                updateProfile()
-            }
-        }
-    }
-    
+    var currentUser:User!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func updateProfile(){
+        
+        //Current user
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let tabBarController = appDelegate.window!.rootViewController as! UITabBarController
+        let firstNavVC = tabBarController.viewControllers!.first as! UINavigationController
+        let newsFeedController = firstNavVC.topViewController as! NewsFeedTableViewController
+        currentUser = newsFeedController.currentUser
+        
+        fullNameTextFields.text = currentUser.fullName
+        usernameTextField.text = currentUser.userName
+        followTextField.text = "\(String(currentUser.follows.count)) amigos"
+        followerTextField.text = "\(String(currentUser.followedBy.count)) usuários te seguem"
+        currentUser.downloadProfilePicture(completion: { (image, error) in
+            self.profileImageView.image = image
+            self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width/2.0
+            self.profileImageView.layer.masksToBounds = true
+        })
         
     }
 
