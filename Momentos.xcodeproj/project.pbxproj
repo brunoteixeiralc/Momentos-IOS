@@ -36,7 +36,6 @@
 		F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */; };
 		F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */; };
 		F45FFF741F047D2500D813FF /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */; };
-		F4745EFE1F1FC17700287DC9 /* MediaForceTouchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4745EFD1F1FC17700287DC9 /* MediaForceTouchViewController.swift */; };
 		F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */; };
 		F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */; };
 		F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */; };
@@ -81,7 +80,6 @@
 		F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailTableViewController.swift; sourceTree = "<group>"; };
 		F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentComposerViewController.swift; sourceTree = "<group>"; };
 		F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
-		F4745EFD1F1FC17700287DC9 /* MediaForceTouchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaForceTouchViewController.swift; sourceTree = "<group>"; };
 		F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHeaderCell.swift; sourceTree = "<group>"; };
 		F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 				F40054DE1EBAC24D00CE46D6 /* NewsFeedTableViewController.swift */,
 				F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */,
 				F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */,
-				F4745EFD1F1FC17700287DC9 /* MediaForceTouchViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -418,7 +415,6 @@
 				F4065F161EE8DFD800D04E4F /* DummyPostComposerViewController.swift in Sources */,
 				F41208751F16FA4600D2F5BE /* ContactsPickerViewController.swift in Sources */,
 				F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */,
-				F4745EFE1F1FC17700287DC9 /* MediaForceTouchViewController.swift in Sources */,
 				F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */,
 				F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */,
 				F41208711F0B3C3A00D2F5BE /* ChatTableViewCell.swift in Sources */,

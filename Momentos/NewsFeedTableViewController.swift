@@ -164,7 +164,7 @@ extension NewsFeedTableViewController{
         
         detailVC?.currentUser = currentUser!
         detailVC?.media = media[(indexPath?.section)!]
-        detailVC?.preferredContentSize = CGSize(width: 0.0, height: 300)
+        detailVC?.preferredContentSize = CGSize(width: 0.0, height: 375)
         
         previewingContext.sourceRect = (cell?.frame)!
         
