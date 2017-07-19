@@ -24,7 +24,7 @@ public struct Storyboard {
     static let showCommentComposer = "ShowCommentComposer"
 }
 
-class NewsFeedTableViewController: UITableViewController {
+class NewsFeedTableViewController: UITableViewController, UIViewControllerPreviewingDelegate{
     
     var imagePickerHelper:ImagePickerHelper!
     var currentUser:User?
@@ -36,6 +36,11 @@ class NewsFeedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if( traitCollection.forceTouchCapability == .available){
+            registerForPreviewing(with: self, sourceView: view)
+
+        }
         
         Auth.auth().addStateDidChangeListener({ (auth, user) in
             
@@ -149,6 +154,26 @@ extension NewsFeedTableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: nil)
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        let indexPath = tableView?.indexPathForRow(at: location)
+        let cell = tableView?.cellForRow(at: indexPath!)
+        let detailVC = storyboard?.instantiateViewController(withIdentifier: "MediaDetailTableViewController") as? MediaDetailTableViewController
+        
+        detailVC?.currentUser = currentUser!
+        detailVC?.media = media[(indexPath?.section)!]
+        detailVC?.preferredContentSize = CGSize(width: 0.0, height: 300)
+        
+        previewingContext.sourceRect = (cell?.frame)!
+        
+        return detailVC
+    }
+    
+    @available(iOS 9.0, *)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
     }
 }
 

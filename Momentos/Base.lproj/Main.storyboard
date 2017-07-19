@@ -841,7 +841,7 @@
         <!--Momentos-->
         <scene sceneID="8ew-rT-ugA">
             <objects>
-                <tableViewController id="mke-2L-o0v" customClass="MediaDetailTableViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MediaDetailTableViewController" id="mke-2L-o0v" customClass="MediaDetailTableViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VOG-Q3-rLv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1107,7 +1107,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Fah-Qk-wyd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d7R-XB-pw1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ket-lR-8Vf">
@@ -1126,7 +1126,7 @@
                                 </state>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qiH-Z7-3tm">
-                                <rect key="frame" x="67" y="110" width="292" height="638"/>
+                                <rect key="frame" x="67" y="110" width="292" height="738"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -2035,7 +2035,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="U5q-qJ-Fqh"/>
-        <segue reference="l1l-2s-tCc"/>
+        <segue reference="5Dj-bO-BO8"/>
         <segue reference="hVY-PJ-vDl"/>
     </inferredMetricsTieBreakers>
 </document>
