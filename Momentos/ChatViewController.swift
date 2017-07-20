@@ -21,11 +21,29 @@ class ChatViewController: JSQMessagesViewController {
     var jsqMessages = [JSQMessage]()
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
+
+    var userIsTypingRef = DatabaseRef.chats.ref()
+    var localTyping = false
+    var isTyping: Bool {
+        get {
+            return localTyping
+        }
+        set {
+            localTyping = newValue
+            userIsTypingRef.setValue(newValue)
+        }
+    }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.observeTyping()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.observeMessage()
+        
         title = chat.title
         self.setupBubbleImages()
         self.setupAvatarImages()
@@ -33,7 +51,6 @@ class ChatViewController: JSQMessagesViewController {
         let backButtom = UIBarButtonItem(image: UIImage(named:"icon-back"), style: .plain, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = backButtom
         
-        self.observeMessage()
     }
     
     func back(_ sender:UIBarButtonItem){
@@ -91,6 +108,11 @@ extension ChatViewController{
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
     }
+    
+    override func textViewDidChange(_ textView: UITextView) {
+        super.textViewDidChange(textView)
+        isTyping = textView.text != ""
+    }
 }
 
 extension ChatViewController{
@@ -110,6 +132,8 @@ extension ChatViewController{
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         finishSendingMessage()
+        
+        isTyping = false
     }
     
 }
@@ -136,5 +160,22 @@ extension ChatViewController{
             jsqMessages.append(jsqMessage!)
         }
     }
-    
+}
+
+extension ChatViewController{
+
+    func observeTyping() {
+        let typingIndicatorRef = chat.ref.child("typingIndicator")
+        userIsTypingRef = typingIndicatorRef.child(senderId)
+        userIsTypingRef.onDisconnectRemoveValue()
+        
+        let usersTypingQuery = chat.ref.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+        usersTypingQuery.observe(.value, with: { (snapshot) in
+            if snapshot.childrenCount == 1 && self.isTyping {
+                return
+            }
+            self.showTypingIndicator = snapshot.childrenCount > 0
+            self.scrollToBottom(animated: true)
+        })
+    }
 }

@@ -24,7 +24,7 @@ public struct Storyboard {
     static let showCommentComposer = "ShowCommentComposer"
 }
 
-class NewsFeedTableViewController: UITableViewController, UIViewControllerPreviewingDelegate{
+class NewsFeedTableViewController: UITableViewController{
     
     var imagePickerHelper:ImagePickerHelper!
     var currentUser:User?
@@ -156,6 +156,19 @@ extension NewsFeedTableViewController{
         self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: nil)
     }
 
+}
+
+extension NewsFeedTableViewController:MediaTableViewCellDelegate{
+    
+    func commentDidTap(media: Media) {
+        self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)
+
+    }
+}
+
+//Force Touch in the newsFeedImage
+extension NewsFeedTableViewController:UIViewControllerPreviewingDelegate{
+  
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         let indexPath = tableView?.indexPathForRow(at: location)
@@ -174,14 +187,6 @@ extension NewsFeedTableViewController{
     @available(iOS 9.0, *)
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         show(viewControllerToCommit, sender: self)
-    }
-}
-
-extension NewsFeedTableViewController:MediaTableViewCellDelegate{
-    
-    func commentDidTap(media: Media) {
-        self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)
-
     }
 }
 
