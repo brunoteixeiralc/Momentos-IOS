@@ -95,7 +95,7 @@ extension PhoneAuthViewController:UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if(textField.text?.characters.count == 1){
+        if(textField.text?.count == 1){
             if textField == code1TextView{
                 code2TextView.becomeFirstResponder()
             }else if textField == code2TextView{

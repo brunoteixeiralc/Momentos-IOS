@@ -38,8 +38,8 @@ class SignUpTableViewController: UITableViewController {
     @IBAction func createNewAccountDidTap() {
         
         if emailTextField.text != ""
-            && (passwordTextField.text?.characters.count)! > 6
-            && (usernameTextField.text?.characters.count)! > 6
+            && (passwordTextField.text?.count)! > 6
+            && (usernameTextField.text?.count)! > 6
             && fullNameTextFields.text != ""
             && profileImage != nil{
             

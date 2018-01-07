@@ -26,7 +26,7 @@ class LoginViewController: UITableViewController {
 
     @IBAction func loginDidTap() {
         
-        if(emailTextField.text != "" && (passwordTextField.text?.characters.count)! > 6){
+        if(emailTextField.text != "" && (passwordTextField.text?.count)! > 6){
             let email = emailTextField.text
             let password = passwordTextField.text
             
