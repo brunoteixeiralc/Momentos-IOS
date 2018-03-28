@@ -61,9 +61,9 @@ class MediaTableViewCell: UITableViewCell {
         if media.likes.count == 0{
             numberOfLikesButtom.setTitle("Seja o primeiro a gostar deste momento", for: [])
         }else if media.likes.count == 1{
-            numberOfLikesButtom.setTitle("♥️ \(media.likes.count) gostou", for: [])
+            numberOfLikesButtom.setTitle("♥️ Uma pessoa gostou", for: [])
         }else{
-            numberOfLikesButtom.setTitle("♥️ \(media.likes.count) gostaram", for: [])
+            numberOfLikesButtom.setTitle("♥️ \(media.likes.count) pessoas gostaram", for: [])
         }
         if media.likes.contains(currentUser){
             likeButtom.setImage(UIImage(named:"icon-like-filled"), for: [])
@@ -76,6 +76,8 @@ class MediaTableViewCell: UITableViewCell {
         }else{
             viewAllCommenstButtom.setTitle("Veja os \(media.comments.count) comentários", for: [])
         }
+        
+        createdAtLabel.text = timeAgoDisplay(date: media.createdTime)
     }
     
     @IBAction func likesDidTap(){
@@ -109,5 +111,30 @@ class MediaTableViewCell: UITableViewCell {
     @IBAction func viewAllCommentsDidTap(){
         
     }
+}
+
+extension MediaTableViewCell{
+    
+    func timeAgoDisplay(date: Double) -> String {
+        let secondsAgo = Int(Date().timeIntervalSince(Date(timeIntervalSince1970: date)))
+        
+        let minute = 60
+        let hour = 60 * minute
+        let day = 24 * hour
+        let week = 7 * day
+        
+        if secondsAgo < minute {
+            return "\(secondsAgo) segundos atrás"
+        } else if secondsAgo < hour {
+            return "\(secondsAgo / minute) minutos atrás"
+        } else if secondsAgo < day {
+            return "\(secondsAgo / hour) horas atrás"
+        } else if secondsAgo < week {
+            return "\(secondsAgo / day) dias atrás"
+        }
+        
+        return "\(secondsAgo / week) semanas atrás"
+    }
+    
 }
 
