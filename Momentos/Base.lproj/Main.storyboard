@@ -319,7 +319,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHB-tF-4p0">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHB-tF-4p0">
                                         <rect key="frame" x="8" y="614" width="359" height="33"/>
                                         <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -376,7 +376,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="GvH-pF-Ww8">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="GvH-pF-Ww8">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -388,7 +388,7 @@
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzC-FR-eO3">
-                                    <rect key="frame" x="133.66666666666666" y="226" width="108" height="30"/>
+                                    <rect key="frame" x="133.66666666666666" y="81" width="108" height="30"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                     <state key="normal" title="Mudar sua foto"/>
                                     <connections>
@@ -1335,7 +1335,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="2PB-2h-sE6">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="2PB-2h-sE6">
                                                     <rect key="frame" x="12" y="12" width="49" height="51"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="MqH-0q-z8N"/>
@@ -1398,7 +1398,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BCY-bD-VQC">
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BCY-bD-VQC">
                                         <rect key="frame" x="0.0" y="296" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BCY-bD-VQC" id="HsB-TF-kyJ">
@@ -1490,7 +1490,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="FFr-Sm-tBZ">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="FFr-Sm-tBZ">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -1502,7 +1502,7 @@
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akU-Lp-gJg">
-                                    <rect key="frame" x="133.66666666666666" y="226" width="108" height="30"/>
+                                    <rect key="frame" x="133.66666666666666" y="81" width="108" height="30"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                     <state key="normal" title="Mudar sua foto"/>
                                     <connections>
@@ -1744,7 +1744,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Nova conta" id="bWI-i5-c11">
+                            <tableViewSection headerTitle="Nova conta" footerTitle="Todos os campos obrigatórios. Senha precisa ter 7 ou mais caracteres." id="bWI-i5-c11">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="r44-lw-yfN">
                                         <rect key="frame" x="0.0" y="55.333333333333336" width="375" height="44"/>
@@ -1815,7 +1815,7 @@
                             <tableViewSection headerTitle=" " id="8Js-Cl-1qB">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ciX-48-ZJX">
-                                        <rect key="frame" x="0.0" y="199.33333333333334" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="227.33333333333334" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ciX-48-ZJX" id="vmL-Jo-Cuo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -1889,12 +1889,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="evS-7t-2U9" customClass="VENTokenField">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="evS-7t-2U9" customClass="VENTokenField">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gb-Pp-csd">
-                                    <rect key="frame" x="0.0" y="188" width="375" height="1"/>
+                                    <rect key="frame" x="0.0" y="43" width="375" height="1"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="7OM-Ow-Nif"/>
@@ -2031,6 +2031,7 @@
         <image name="icon-share" width="20" height="22"/>
         <image name="icon-twitter" width="100" height="100"/>
         <image name="icon-username" width="100" height="100"/>
+        <image name="image" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4Xo-NF-kVh"/>

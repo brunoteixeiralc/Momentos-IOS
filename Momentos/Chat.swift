@@ -58,7 +58,6 @@ class Chat{
                 }
             }
         }
-        
     }
     
     func save(){

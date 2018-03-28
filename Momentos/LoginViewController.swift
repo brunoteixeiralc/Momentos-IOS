@@ -37,6 +37,8 @@ class LoginViewController: UITableViewController {
                     self.dismiss(animated: true, completion: nil)
                 }
             })
+        }else{
+            self.alert(title: "Momentos Login", message: "Oops...ocorreu um erro ao fazer login.\nVerifique seu email e senha.", buttonTitle: "OK")
         }
     }
     
