@@ -15,6 +15,7 @@ class MediaHeaderCell: UITableViewCell {
     @IBOutlet weak var usernameButtom:UIButton!
     @IBOutlet weak var followButtom:UIButton!
 
+    var profileVC:ProfileViewController?
     var cache = SAMCache.shared()
     var currentUser:User!
     var media:Media!{
@@ -73,6 +74,13 @@ class MediaHeaderCell: UITableViewCell {
             followButtom.setTitle("  Seguindo  ", for: [])
             currentUser.follow(user: media.createdBy)
     }
-  }
-
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let tabBarController = appDelegate.window!.rootViewController as! UITabBarController
+    let firstNavVC = tabBarController.viewControllers?.last as! UINavigationController
+    let profileViewController = firstNavVC.topViewController as! ProfileViewController
+    if let followTextField = profileViewController.followTextField{
+        followTextField.text = "\(String(currentUser.follows.count)) amigos"
+        }
+    }
 }

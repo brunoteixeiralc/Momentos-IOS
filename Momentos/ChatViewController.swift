@@ -24,19 +24,19 @@ class ChatViewController: JSQMessagesViewController {
 
     var userIsTypingRef = DatabaseRef.chats.ref()
     var localTyping = false
-    var isTyping: Bool {
-        get {
-            return localTyping
-        }
-        set {
-            localTyping = newValue
-            userIsTypingRef.setValue(newValue)
-        }
-    }
+//    var isTyping: Bool {
+//        get {
+//            return localTyping
+//        }
+//        set {
+//            localTyping = newValue
+//            userIsTypingRef.setValue(newValue)
+//        }
+//    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.observeTyping()
+        //self.observeTyping()
     }
     
     override func viewDidLoad() {
@@ -111,7 +111,7 @@ extension ChatViewController{
     
     override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
-        isTyping = textView.text != ""
+       // isTyping = textView.text != ""
     }
 }
 
@@ -133,7 +133,7 @@ extension ChatViewController{
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         finishSendingMessage()
         
-        isTyping = false
+       // isTyping = false
     }
     
 }
@@ -164,18 +164,18 @@ extension ChatViewController{
 
 extension ChatViewController{
 
-    func observeTyping() {
-        let typingIndicatorRef = chat.ref.child("typingIndicator")
-        userIsTypingRef = typingIndicatorRef.child(senderId)
-        userIsTypingRef.onDisconnectRemoveValue()
-        
-        let usersTypingQuery = chat.ref.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
-        usersTypingQuery.observe(.value, with: { (snapshot) in
-            if snapshot.childrenCount == 1 && self.isTyping {
-                return
-            }
-            self.showTypingIndicator = snapshot.childrenCount > 0
-            self.scrollToBottom(animated: true)
-        })
-    }
+//    func observeTyping() {
+//        let typingIndicatorRef = chat.ref.child("typingIndicator")
+//        userIsTypingRef = typingIndicatorRef.child(senderId)
+//        userIsTypingRef.onDisconnectRemoveValue()
+//
+//        let usersTypingQuery = chat.ref.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+//        usersTypingQuery.observe(.value, with: { (snapshot) in
+//            if snapshot.childrenCount == 1 && self.isTyping {
+//                return
+//            }
+//            self.showTypingIndicator = snapshot.childrenCount > 0
+//            self.scrollToBottom(animated: true)
+//        })
+//    }
 }

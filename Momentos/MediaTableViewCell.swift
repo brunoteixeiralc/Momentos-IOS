@@ -28,7 +28,8 @@ class MediaTableViewCell: UITableViewCell {
     var cache = SAMCache.shared()
     weak var delegate: MediaTableViewCellDelegate?
     
-    let animationView = LOTAnimationView(name: "like")
+    let animationLike = LOTAnimationView(name: "like")
+    let animationLoading = LOTAnimationView(name: "loading")
     
     var currentUser:User!
     var media:Media! {
@@ -41,41 +42,35 @@ class MediaTableViewCell: UITableViewCell {
     
     func updateUI(){
         
-        animationView?.frame = CGRect(x: 0, y: 0, width: 201, height: 201)
-        animationView?.center = mediaImageView.center
+        animationLike?.frame = CGRect(x: 0, y: 0, width: 201, height: 201)
+        animationLike?.center = mediaImageView.center
+        animationLoading?.frame = CGRect(x: 0, y: 0, width: 201, height: 201)
+        animationLoading?.center = mediaImageView.center
         
         self.mediaImageView.image = nil
         
         if let image = self.cache?.object(forKey: "\(media.uid)-mediaImage") as? UIImage{
             self.mediaImageView.image = image
         }else{
+            
+            animationLoading?.animationProgress = 0.0
+            animationLoading?.loopAnimation = true
+            addSubview((animationLoading)!)
+            animationLoading?.play()
+            
             media.downloadMediaImage { [weak self](image, error) in
                 self?.mediaImageView.image = image
                 self?.cache?.setObject(image, forKey: "\(String(describing: self?.media.uid))-mediaImage")
+                self?.animationLoading?.removeFromSuperview()
             }
         }
         
         captionLabel.text = media.caption
+        
         likeButtom.setImage(UIImage(named:"icon-like"), for: [])
+        setLikesBy()
         
-        if media.likes.count == 0{
-            numberOfLikesButtom.setTitle("Seja o primeiro a gostar deste momento", for: [])
-        }else if media.likes.count == 1{
-            numberOfLikesButtom.setTitle("♥️ Uma pessoa gostou", for: [])
-        }else{
-            numberOfLikesButtom.setTitle("♥️ \(media.likes.count) pessoas gostaram", for: [])
-        }
-        if media.likes.contains(currentUser){
-            likeButtom.setImage(UIImage(named:"icon-like-filled"), for: [])
-        }
-        
-        if media.comments.count == 0{
-            viewAllCommenstButtom.setTitle("Seja o primeiro a fazer um comentário", for: [])
-        }else if media.comments.count == 1{
-            viewAllCommenstButtom.setTitle("Veja o primeiro comentário", for: [])
-        }else{
-            viewAllCommenstButtom.setTitle("Veja os \(media.comments.count) comentários", for: [])
-        }
+        setComments()
         
         createdAtLabel.text = timeAgoDisplay(date: media.createdTime)
     }
@@ -88,16 +83,18 @@ class MediaTableViewCell: UITableViewCell {
             media.likedBy(user: currentUser)
             self.likeButtom.setImage(UIImage(named: "icon-like-filled"), for: [])
             
-            animationView?.animationProgress = 0.0
-            addSubview((animationView)!)
-            animationView?.play(completion: { finished in
-                self.animationView?.removeFromSuperview()
+            animationLike?.animationProgress = 0.0
+            addSubview((animationLike)!)
+            animationLike?.play(completion: { finished in
+                self.animationLike?.removeFromSuperview()
             })
         }
+        setLikesBy()
     }
     
     @IBAction func commentDidTap(){
         delegate?.commentDidTap(media: media)
+        setComments()
     }
     
     @IBAction func shareDidTap(){
@@ -114,6 +111,29 @@ class MediaTableViewCell: UITableViewCell {
 }
 
 extension MediaTableViewCell{
+    
+    func setComments(){
+        if media.comments.count == 0{
+            viewAllCommenstButtom.setTitle("Seja o primeiro a fazer um comentário", for: [])
+        }else if media.comments.count == 1{
+            viewAllCommenstButtom.setTitle("Veja o primeiro comentário", for: [])
+        }else{
+            viewAllCommenstButtom.setTitle("Veja os \(media.comments.count) comentários", for: [])
+        }
+    }
+    
+    func setLikesBy(){
+        if media.likes.count == 0{
+            numberOfLikesButtom.setTitle("Seja o primeiro a gostar deste momento", for: [])
+        }else if media.likes.count == 1{
+            numberOfLikesButtom.setTitle("♥️ Uma pessoa gostou", for: [])
+        }else{
+            numberOfLikesButtom.setTitle("♥️ \(media.likes.count) pessoas gostaram", for: [])
+        }
+        if media.likes.contains(currentUser){
+            likeButtom.setImage(UIImage(named:"icon-like-filled"), for: [])
+        }
+    }
     
     func timeAgoDisplay(date: Double) -> String {
         let secondsAgo = Int(Date().timeIntervalSince(Date(timeIntervalSince1970: date)))

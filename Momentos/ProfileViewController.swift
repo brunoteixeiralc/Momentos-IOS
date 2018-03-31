@@ -31,6 +31,9 @@ class ProfileViewController: UITableViewController {
         currentUser = newsFeedController.currentUser
         
         fullNameTextFields.text = currentUser.fullName
+        if let email = Auth.auth().currentUser?.email{
+          emailTextField.text = email
+        }
         usernameTextField.text = currentUser.userName
         followTextField.text = "\(String(currentUser.follows.count)) amigos"
         followerTextField.text = "\(String(currentUser.followedBy.count)) usuários te seguem"

@@ -57,13 +57,22 @@ class NewsFeedTableViewController: UITableViewController{
         })
         
         self.tabBarController?.delegate = self
-
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshOptions), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Atualizando...")
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        
         tableView.estimatedRowHeight = Storyboard.mediaCellDefaultHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor.clear
         
         fetchMedia()
-    } 
+    }
     
     func fetchMedia(){
         Media.observerMedia { (media) in
@@ -72,6 +81,11 @@ class NewsFeedTableViewController: UITableViewController{
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    @objc private func refreshOptions(sender: UIRefreshControl) {
+        fetchMedia()
+        sender.endRefreshing()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -1444,7 +1444,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="hqw-N7-gfV">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="cancelDidTap:" destination="2OT-dH-ORI" id="Rsc-5f-71l"/>
+                                <action selector="cancelDidTap" destination="2OT-dH-ORI" id="ji4-9v-KSt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Enviar" id="gb3-7m-kMg">
@@ -1485,7 +1485,7 @@
         <!--Seu perfil-->
         <scene sceneID="xsV-2r-27N">
             <objects>
-                <tableViewController id="601-Rk-JUE" customClass="ProfileViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileViewController" id="601-Rk-JUE" customClass="ProfileViewController" customModule="Momentos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="MZg-se-oGd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
