@@ -10,11 +10,12 @@ import UIKit
 import SAMCache
 import Lottie
 
-protocol MediaTableViewCellDelegate: class {
+protocol MediaNewsFeedViewCellDelegate: class {
     func commentDidTap(media: Media)
+    func seeCommentDidTap(media: Media)
 }
 
-class MediaTableViewCell: UITableViewCell {
+class MediaNewsFeedViewCell: UITableViewCell {
 
     @IBOutlet weak var mediaImageView:UIImageView!
     @IBOutlet weak var captionLabel:UILabel!
@@ -26,7 +27,7 @@ class MediaTableViewCell: UITableViewCell {
     @IBOutlet weak var viewAllCommenstButtom:UIButton!
     
     var cache = SAMCache.shared()
-    weak var delegate: MediaTableViewCellDelegate?
+    weak var delegate: MediaNewsFeedViewCellDelegate?
     
     let animationLike = LOTAnimationView(name: "like")
     let animationLoading = LOTAnimationView(name: "loading")
@@ -92,6 +93,10 @@ class MediaTableViewCell: UITableViewCell {
         setLikesBy()
     }
     
+    @IBAction func seeCommentDidTap(){
+        delegate?.seeCommentDidTap(media: media)
+    }
+    
     @IBAction func commentDidTap(){
         delegate?.commentDidTap(media: media)
         setComments()
@@ -105,12 +110,9 @@ class MediaTableViewCell: UITableViewCell {
         
     }
     
-    @IBAction func viewAllCommentsDidTap(){
-        
-    }
 }
 
-extension MediaTableViewCell{
+extension MediaNewsFeedViewCell{
     
     func setComments(){
         if media.comments.count == 0{

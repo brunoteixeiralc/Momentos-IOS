@@ -91,10 +91,11 @@ class NewsFeedTableViewController: UITableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Storyboard.showMediaDetail{
             let mediaDetailTVC = segue.destination as! MediaDetailTableViewController
-            if let selectedIndex = tableView.indexPathForSelectedRow{
+            //if let selectedIndex = tableView.indexPathForSelectedRow{
                 mediaDetailTVC.currentUser = currentUser!
-                mediaDetailTVC.media = media[selectedIndex.section]
-            }
+                //mediaDetailTVC.media = media[selectedIndex.section]
+                mediaDetailTVC.media = sender as! Media
+           // }
         }else if segue.identifier == Storyboard.showCommentComposer{
             let commentComposer = segue.destination as! CommentComposerViewController
             let selectedMedia = sender as! Media
@@ -142,7 +143,7 @@ extension NewsFeedTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaCell, for: indexPath) as! MediaTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaCell, for: indexPath) as! MediaNewsFeedViewCell
         
         cell.currentUser = currentUser
         cell.media = media[indexPath.section]
@@ -167,16 +168,20 @@ extension NewsFeedTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: nil)
+        //self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: nil)
     }
 
 }
 
-extension NewsFeedTableViewController:MediaTableViewCellDelegate{
+extension NewsFeedTableViewController:MediaNewsFeedViewCellDelegate{
     
     func commentDidTap(media: Media) {
         self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)
 
+    }
+    
+    func seeCommentDidTap(media: Media) {
+         self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: media)
     }
 }
 

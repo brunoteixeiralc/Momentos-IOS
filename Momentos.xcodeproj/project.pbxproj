@@ -16,6 +16,7 @@
 		F4065F131EE8D25900D04E4F /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4065F121EE8D25900D04E4F /* Comments.swift */; };
 		F4065F161EE8DFD800D04E4F /* DummyPostComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4065F151EE8DFD800D04E4F /* DummyPostComposerViewController.swift */; };
 		F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4065F171EE8DFF400D04E4F /* PostComposerViewController.swift */; };
+		F4114A1B20729BA3001CFAE6 /* MediaDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4114A1A20729BA3001CFAE6 /* MediaDetailViewCell.swift */; };
 		F412086A1F0B284F00D2F5BE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41208691F0B284F00D2F5BE /* AdSupport.framework */; };
 		F412086D1F0B2C4400D2F5BE /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F412086C1F0B2C4400D2F5BE /* Chat.swift */; };
 		F412086F1F0B32E000D2F5BE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F412086E1F0B32E000D2F5BE /* Message.swift */; };
@@ -38,7 +39,7 @@
 		F45FFF741F047D2500D813FF /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */; };
 		F4A011A7206F058B00DDDE13 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A011A6206F058A00DDDE13 /* loading.json */; };
 		F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */; };
-		F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */; };
+		F4A3ADA81EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift */; };
 		F4A3ADAA1EFB5E0A00B0AC45 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */; };
 		F4C275611EC3E3CE00A032D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */; };
 		F4C275641EC3E80C00A032D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */; };
@@ -59,6 +60,7 @@
 		F4065F121EE8D25900D04E4F /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		F4065F151EE8DFD800D04E4F /* DummyPostComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyPostComposerViewController.swift; sourceTree = "<group>"; };
 		F4065F171EE8DFF400D04E4F /* PostComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostComposerViewController.swift; sourceTree = "<group>"; };
+		F4114A1A20729BA3001CFAE6 /* MediaDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailViewCell.swift; sourceTree = "<group>"; };
 		F41208691F0B284F00D2F5BE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		F412086C1F0B2C4400D2F5BE /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		F412086E1F0B32E000D2F5BE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
 		F4A011A6206F058A00DDDE13 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHeaderCell.swift; sourceTree = "<group>"; };
-		F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
+		F4A3ADA71EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaNewsFeedViewCell.swift; sourceTree = "<group>"; };
 		F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		F4C275601EC3E3CE00A032D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F4C275631EC3E80C00A032D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -220,8 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */,
-				F4A3ADA71EFB57B100B0AC45 /* MediaTableViewCell.swift */,
+				F4A3ADA71EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift */,
 				F4A3ADA91EFB5E0A00B0AC45 /* CommentsTableViewCell.swift */,
+				F4114A1A20729BA3001CFAE6 /* MediaDetailViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -458,7 +461,7 @@
 				F4065F161EE8DFD800D04E4F /* DummyPostComposerViewController.swift in Sources */,
 				F41208751F16FA4600D2F5BE /* ContactsPickerViewController.swift in Sources */,
 				F40054E11EBAC26300CE46D6 /* SignUpTableViewController.swift in Sources */,
-				F4A3ADA81EFB57B100B0AC45 /* MediaTableViewCell.swift in Sources */,
+				F4A3ADA81EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift in Sources */,
 				F44AF3901EAEF8FC00925B61 /* FIRImage.swift in Sources */,
 				F41208711F0B3C3A00D2F5BE /* ChatTableViewCell.swift in Sources */,
 				F40054E51EBAC91200CE46D6 /* ImagePickerHelper.swift in Sources */,
@@ -478,6 +481,7 @@
 				F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */,
 				F4065F131EE8D25900D04E4F /* Comments.swift in Sources */,
 				F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */,
+				F4114A1B20729BA3001CFAE6 /* MediaDetailViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

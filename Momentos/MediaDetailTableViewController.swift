@@ -20,7 +20,7 @@ class MediaDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Foto"
+        navigationItem.title = "Detalhe"
         
         tableView.allowsSelection = false
         tableView.estimatedRowHeight = Storyboard.mediaCellDefaultHeight
@@ -80,7 +80,7 @@ class MediaDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaCell, for: indexPath) as! MediaTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaCell, for: indexPath) as! MediaDetailViewCell
             cell.currentUser = currentUser
             cell.media = media
             
