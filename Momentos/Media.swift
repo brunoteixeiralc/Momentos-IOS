@@ -122,6 +122,20 @@ extension Media{
         })
     }
     
+    func observeNewLikes(_ completion :@escaping (User) -> Void){
+        DatabaseRef.media.ref().child(uid).child("likes").observe(.childAdded, with: { (snapshot) in
+            let user = User(dictionary: snapshot.value as! [String:Any])
+            completion(user)
+        })
+    }
+    
+    func observeNewUnLikes(_ completion :@escaping (User) -> Void){
+        DatabaseRef.media.ref().child(uid).child("likes").observe(.childRemoved, with: { (snapshot) in
+            let user = User(dictionary: snapshot.value as! [String:Any])
+            completion(user)
+        })
+    }
+    
     func likedBy(user:User){
         likes.append(user)
         DatabaseRef.media.ref().child(uid).child("likes").child(user.uid).setValue(user.toDictionary())

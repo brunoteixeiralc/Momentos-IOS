@@ -38,7 +38,11 @@ class ProfileViewController: UITableViewController {
         followTextField.text = "\(String(currentUser.follows.count)) amigos"
         followerTextField.text = "\(String(currentUser.followedBy.count)) usuários te seguem"
         currentUser.downloadProfilePicture(completion: { (image, error) in
-            self.profileImageView.image = image
+            if error != nil{
+                self.profileImageView.image = UIImage(named: "icon-defaultAvatar")
+            }else{
+                self.profileImageView.image = image
+            }
             self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width/2.0
             self.profileImageView.layer.masksToBounds = true
         })

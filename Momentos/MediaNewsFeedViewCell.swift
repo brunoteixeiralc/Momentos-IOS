@@ -43,6 +43,10 @@ class MediaNewsFeedViewCell: UITableViewCell {
     
     func updateUI(){
         
+        fetchComments()
+        fetchLikes()
+        fetchUnLikes()
+        
         animationLike?.frame = CGRect(x: 0, y: 0, width: 201, height: 201)
         animationLike?.center = mediaImageView.center
         animationLoading?.frame = CGRect(x: 0, y: 0, width: 201, height: 201)
@@ -69,11 +73,26 @@ class MediaNewsFeedViewCell: UITableViewCell {
         captionLabel.text = media.caption
         
         likeButtom.setImage(UIImage(named:"icon-like"), for: [])
-        setLikesBy()
-        
-        setComments()
         
         createdAtLabel.text = timeAgoDisplay(date: media.createdTime)
+    }
+    
+    func fetchComments(){
+        media.observeNewComment { (comment) in
+           self.setComments()
+        }
+    }
+    
+    func fetchLikes(){
+        media.observeNewLikes { (comment) in
+            self.setLikesBy()
+        }
+    }
+    
+    func fetchUnLikes(){
+        media.observeNewUnLikes { (comment) in
+            self.setLikesBy()
+        }
     }
     
     @IBAction func likesDidTap(){
@@ -90,7 +109,6 @@ class MediaNewsFeedViewCell: UITableViewCell {
                 self.animationLike?.removeFromSuperview()
             })
         }
-        setLikesBy()
     }
     
     @IBAction func seeCommentDidTap(){
@@ -99,7 +117,6 @@ class MediaNewsFeedViewCell: UITableViewCell {
     
     @IBAction func commentDidTap(){
         delegate?.commentDidTap(media: media)
-        setComments()
     }
     
     @IBAction func shareDidTap(){

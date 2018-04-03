@@ -50,17 +50,18 @@ class SignUpTableViewController: UITableViewController {
             
             Auth.auth().createUser(withEmail: email, password: password, completion: { (firuser, error) in
                 if(error != nil){
-                    
+                    self.alert(title: "Momentos Login", message: (error?.localizedDescription)!, buttonTitle: "OK")
+                
                 }else if let firuser = firuser{
                     
                     let newUser = User(uid: firuser.uid, userName: username, fullName: fullname, bio: "", website: "", profileImage: self.profileImage, follows: [], followedBy: [])
                     newUser.save(completion: { (error) in
                         if error != nil{
-                            
+                            self.alert(title: "Momentos Login", message: (error?.localizedDescription)!, buttonTitle: "OK")
                         }else{
                             Auth.auth().signIn(withEmail: email, password: password, completion: { (firuser, error) in
                                 if error != nil{
-                                    
+                                   self.alert(title: "Momentos Login", message: (error?.localizedDescription)!, buttonTitle: "OK")
                                 }else{
                                    self.dismiss(animated: true, completion: nil)
                                 }
@@ -72,6 +73,14 @@ class SignUpTableViewController: UITableViewController {
             })
             
         }
+    }
+    
+    func alert(title:String,message:String,buttonTitle:String){
+        
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
+        alertVC.addAction(action)
+        present(alertVC, animated: true, completion: nil)
     }
     
     @IBAction func backDidTap(_ sender: Any) {

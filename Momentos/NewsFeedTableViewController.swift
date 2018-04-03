@@ -9,17 +9,15 @@
 import UIKit
 import Firebase
 
-public struct Storyboard {
-    static let showWelcome = "ShowWelcomeViewController"
-    static let postComposerNVC = "PostComposerNavigationVC"
-    
-    static let mediaCell = "MediaCell"
-    static let mediaHeaderCell = "MediaHeaderCell"
+public struct NewsFeedStoryboard {
     static let mediaHeaderHeight: CGFloat = 57
     static let mediaCellDefaultHeight: CGFloat = 597
     
+    static let showWelcome = "ShowWelcomeViewController"
+    static let postComposerNVC = "PostComposerNavigationVC"
+    static let mediaCell = "MediaCell"
+    static let mediaHeaderCell = "MediaHeaderCell"
     static let showMediaDetail = "ShowMediaDetailSegue"
-    
     static let commentCell = "CommentCell"
     static let showCommentComposer = "ShowCommentComposer"
 }
@@ -52,7 +50,7 @@ class NewsFeedTableViewController: UITableViewController{
                 })
                 
             }else{
-                self.performSegue(withIdentifier: Storyboard.showWelcome, sender: nil)
+                self.performSegue(withIdentifier: NewsFeedStoryboard.showWelcome, sender: nil)
             }
         })
         
@@ -67,7 +65,7 @@ class NewsFeedTableViewController: UITableViewController{
             tableView.addSubview(refreshControl)
         }
         
-        tableView.estimatedRowHeight = Storyboard.mediaCellDefaultHeight
+        tableView.estimatedRowHeight = NewsFeedStoryboard.mediaCellDefaultHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor.clear
         
@@ -89,14 +87,14 @@ class NewsFeedTableViewController: UITableViewController{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Storyboard.showMediaDetail{
+        if segue.identifier == NewsFeedStoryboard.showMediaDetail{
             let mediaDetailTVC = segue.destination as! MediaDetailTableViewController
             //if let selectedIndex = tableView.indexPathForSelectedRow{
                 mediaDetailTVC.currentUser = currentUser!
                 //mediaDetailTVC.media = media[selectedIndex.section]
                 mediaDetailTVC.media = sender as! Media
            // }
-        }else if segue.identifier == Storyboard.showCommentComposer{
+        }else if segue.identifier == NewsFeedStoryboard.showCommentComposer{
             let commentComposer = segue.destination as! CommentComposerViewController
             let selectedMedia = sender as! Media
             commentComposer.currentUser = currentUser
@@ -113,7 +111,7 @@ extension NewsFeedTableViewController:UITabBarControllerDelegate{
             
             imagePickerHelper = ImagePickerHelper(viewController: self, completion: { (image) in
                 
-                let postComposerNVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Storyboard.postComposerNVC) as! UINavigationController
+                let postComposerNVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: NewsFeedStoryboard.postComposerNVC) as! UINavigationController
                 
                 let postComposerVC = postComposerNVC.topViewController as! PostComposerViewController
                 postComposerVC.image = image
@@ -143,7 +141,7 @@ extension NewsFeedTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaCell, for: indexPath) as! MediaNewsFeedViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedStoryboard.mediaCell, for: indexPath) as! MediaNewsFeedViewCell
         
         cell.currentUser = currentUser
         cell.media = media[indexPath.section]
@@ -154,7 +152,7 @@ extension NewsFeedTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaHeaderCell) as! MediaHeaderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedStoryboard.mediaHeaderCell) as! MediaHeaderCell
         
         cell.currentUser = currentUser
         cell.media = media[section]
@@ -164,7 +162,7 @@ extension NewsFeedTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Storyboard.mediaHeaderHeight
+        return NewsFeedStoryboard.mediaHeaderHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -176,12 +174,12 @@ extension NewsFeedTableViewController{
 extension NewsFeedTableViewController:MediaNewsFeedViewCellDelegate{
     
     func commentDidTap(media: Media) {
-        self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)
+        self.performSegue(withIdentifier: NewsFeedStoryboard.showCommentComposer, sender: media)
 
     }
     
     func seeCommentDidTap(media: Media) {
-         self.performSegue(withIdentifier: Storyboard.showMediaDetail, sender: media)
+         self.performSegue(withIdentifier: NewsFeedStoryboard.showMediaDetail, sender: media)
     }
 }
 

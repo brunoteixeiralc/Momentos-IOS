@@ -33,7 +33,11 @@ class ContactTableViewCell: UITableViewCell {
     
     func updateUI(){
       user.downloadProfilePicture { (image, error) in
-        self.profileImageView.image = image
+        if error != nil{
+            self.profileImageView.image = UIImage(named:"icon-defaultAvatar")
+        }else{
+            self.profileImageView.image = image
+        }
         self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width / 2.0
         self.profileImageView.layer.masksToBounds = true
         }

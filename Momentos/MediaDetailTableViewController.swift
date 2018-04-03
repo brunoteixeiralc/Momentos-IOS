@@ -9,9 +9,20 @@
 import UIKit
 import Firebase
 
-class MediaDetailTableViewController: UITableViewController {
+public struct DetailStoryboard {
+    static let mediaHeaderHeight: CGFloat = 57
+    static let mediaCellDefaultHeight: CGFloat = 535
+    static let mediaCommentCellDefaultHeight: CGFloat = 100
     
-    @IBOutlet weak var likeButtom:UIBarButtonItem!
+    static let showMediaDetail = "ShowMediaDetailSegue"
+    static let commentCell = "CommentCell"
+    static let showCommentComposer = "ShowCommentComposer"
+    static let mediaCell = "MediaCell"
+    static let mediaHeaderCell = "MediaHeaderCell"
+
+}
+
+class MediaDetailTableViewController: UITableViewController {
     
     var media:Media!
     var currentUser:User!
@@ -23,17 +34,13 @@ class MediaDetailTableViewController: UITableViewController {
         navigationItem.title = "Detalhe"
         
         tableView.allowsSelection = false
-        tableView.estimatedRowHeight = Storyboard.mediaCellDefaultHeight
+        tableView.estimatedRowHeight = DetailStoryboard.mediaCellDefaultHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         
         comments = media.comments
         tableView.reloadData()
         
         self.fetchComments()
-        
-        if media.likes.contains(currentUser){
-           likeButtom.image = UIImage(named: "icon-like-filled-2")
-        }
     }
     
     func fetchComments(){
@@ -45,24 +52,13 @@ class MediaDetailTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func likesDidTap(){
-        if media.likes.contains(currentUser){
-            likeButtom.image = UIImage(named: "icon-like")
-            media.unlikedBy(user: currentUser)
-        }else{
-            likeButtom.image = UIImage(named: "icon-like-filled-2")
-            media.likedBy(user: currentUser)
-        }
-    }
-    
-    
     @IBAction func commentDidTap(){
-        self.performSegue(withIdentifier: Storyboard.showCommentComposer, sender: media)
+        self.performSegue(withIdentifier: DetailStoryboard.showCommentComposer, sender: media)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Storyboard.showCommentComposer{
+        if segue.identifier == DetailStoryboard.showCommentComposer{
             let commmentComposer = segue.destination as! CommentComposerViewController
             commmentComposer.media = media
             commmentComposer.currentUser = currentUser
@@ -80,14 +76,14 @@ class MediaDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaCell, for: indexPath) as! MediaDetailViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailStoryboard.mediaCell, for: indexPath) as! MediaDetailViewCell
             cell.currentUser = currentUser
             cell.media = media
             
             return cell
             
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.commentCell, for: indexPath) as! CommentsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailStoryboard.commentCell, for: indexPath) as! CommentsTableViewCell
             cell.comment = comments[indexPath.row - 1]
             
             return cell
@@ -96,7 +92,7 @@ class MediaDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.mediaHeaderCell) as! MediaHeaderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailStoryboard.mediaHeaderCell) as! MediaHeaderCell
         
         cell.currentUser = currentUser
         cell.media = media
@@ -106,7 +102,8 @@ class MediaDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Storyboard.mediaHeaderHeight
+        return DetailStoryboard.mediaHeaderHeight
     }
+    
 }
 
