@@ -31,7 +31,7 @@ class MediaDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Detalhe"
+        navigationItem.title = "Comentários"
         
         tableView.allowsSelection = false
         tableView.estimatedRowHeight = DetailStoryboard.mediaCellDefaultHeight

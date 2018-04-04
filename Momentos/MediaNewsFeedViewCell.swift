@@ -54,10 +54,15 @@ class MediaNewsFeedViewCell: UITableViewCell {
         
         self.mediaImageView.image = nil
         
-        if let image = self.cache?.object(forKey: "\(media.uid)-mediaImage") as? UIImage{
+//        if let imageCache = self.cache?.object(forKey: "\(media.uid)-mediaImage") as? UIImage{
+//            self.mediaImageView.image = imageCache
+//
+//        }else
+        
+        if let image = self.media.mediaImage{
             self.mediaImageView.image = image
+       
         }else{
-            
             animationLoading?.animationProgress = 0.0
             animationLoading?.loopAnimation = true
             addSubview((animationLoading)!)

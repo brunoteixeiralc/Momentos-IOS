@@ -27,6 +27,7 @@ class NewsFeedTableViewController: UITableViewController{
     var imagePickerHelper:ImagePickerHelper!
     var currentUser:User?
     var media = [Media]()
+    private var task: URLSessionDataTask?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -68,6 +69,7 @@ class NewsFeedTableViewController: UITableViewController{
         tableView.estimatedRowHeight = NewsFeedStoryboard.mediaCellDefaultHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor.clear
+        tableView.prefetchDataSource = self
         
         fetchMedia()
     }
@@ -77,6 +79,14 @@ class NewsFeedTableViewController: UITableViewController{
             if !self.media.contains(media){
                 self.media.insert(media, at: 0)
                 self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func downloadMediaImage(forItemAtIndex index: Int){
+      media[index].downloadMediaImage { (image, error) in
+            if error == nil{
+                self.media[index].mediaImage = image
             }
         }
     }
@@ -204,6 +214,16 @@ extension NewsFeedTableViewController:UIViewControllerPreviewingDelegate{
     @available(iOS 9.0, *)
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         show(viewControllerToCommit, sender: self)
+    }
+}
+
+extension NewsFeedTableViewController:UITableViewDataSourcePrefetching{
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { self.downloadMediaImage(forItemAtIndex: $0.section) }
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
     }
 }
 
