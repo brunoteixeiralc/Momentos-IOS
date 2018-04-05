@@ -26,7 +26,7 @@ class MediaNewsFeedViewCell: UITableViewCell {
     @IBOutlet weak var numberOfLikesButtom:UIButton!
     @IBOutlet weak var viewAllCommenstButtom:UIButton!
     
-    var cache = SAMCache.shared()
+    //var cache = SAMCache.shared()
     weak var delegate: MediaNewsFeedViewCellDelegate?
     
     let animationLike = LOTAnimationView(name: "like")
@@ -56,11 +56,10 @@ class MediaNewsFeedViewCell: UITableViewCell {
         
 //        if let imageCache = self.cache?.object(forKey: "\(media.uid)-mediaImage") as? UIImage{
 //            self.mediaImageView.image = imageCache
-//
 //        }else
         
         if let image = self.media.mediaImage{
-            self.mediaImageView.image = image
+           self.mediaImageView.image = image
        
         }else{
             animationLoading?.animationProgress = 0.0
@@ -70,7 +69,7 @@ class MediaNewsFeedViewCell: UITableViewCell {
             
             media.downloadMediaImage { [weak self](image, error) in
                 self?.mediaImageView.image = image
-                self?.cache?.setObject(image, forKey: "\(String(describing: self?.media.uid))-mediaImage")
+                //self?.cache?.setObject(image, forKey: "\(String(describing: self?.media.uid))-mediaImage")
                 self?.animationLoading?.removeFromSuperview()
             }
         }
@@ -84,18 +83,21 @@ class MediaNewsFeedViewCell: UITableViewCell {
     
     func fetchComments(){
         media.observeNewComment { (comment) in
-           self.setComments()
+            if !self.media.comments.contains(comment){
+                self.media.comments.insert(comment, at: 0)
+            }
+            self.setComments()
         }
     }
     
     func fetchLikes(){
-        media.observeNewLikes { (comment) in
+        media.observeNewLikes { (like) in
             self.setLikesBy()
         }
     }
     
     func fetchUnLikes(){
-        media.observeNewUnLikes { (comment) in
+        media.observeNewUnLikes { (unLike) in
             self.setLikesBy()
         }
     }

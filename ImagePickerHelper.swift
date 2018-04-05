@@ -9,7 +9,7 @@
 import UIKit
 import MobileCoreServices
 
-typealias ImagePickerHelperCompletion = ((UIImage?) -> Void)!
+typealias ImagePickerHelperCompletion = ((UIImage?) -> Void)?
 
 class ImagePickerHelper: NSObject {
     
@@ -70,7 +70,7 @@ extension ImagePickerHelper:UIImagePickerControllerDelegate,UINavigationControll
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerEditedImage] as! UIImage
         viewController.dismiss(animated: true, completion: nil)
-        completion(image)
+        completion!(image)
     }
     
 }

@@ -27,13 +27,8 @@ class ContactsPickerViewController: UITableViewController {
     @IBOutlet weak var nextBarButtomItem: UIBarButtonItem!
     @IBOutlet weak var contactPickerField: VENTokenField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = "Nova Mensagem"
-        navigationItem.rightBarButtonItem = nextBarButtomItem
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         //Current user
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -42,16 +37,26 @@ class ContactsPickerViewController: UITableViewController {
         let newsFeedController = firstNavVC.topViewController as! NewsFeedTableViewController
         currentUser = newsFeedController.currentUser
         
+        self.fetchUsers()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        title = "Nova Conversa"
+        navigationItem.rightBarButtonItem = nextBarButtomItem
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         //Contact Picker Field
         contactPickerField.placeholderText = "Participante(s)..."
-        contactPickerField.setColorScheme(UIColor.red)
+        contactPickerField.setColorScheme(UIColor.black)
         contactPickerField.delimiters = [",",";","--"]
         contactPickerField.toLabelText = "Para:"
+        contactPickerField.isUserInteractionEnabled = false
         contactPickerField.toLabelTextColor = UIColor.black
         contactPickerField.delegate = self
         contactPickerField.dataSource = self
-        
-        self.fetchUsers()
         
     }
 
@@ -186,5 +191,4 @@ extension ContactsPickerViewController:VENTokenFieldDelegate{
         cell.added = !cell.added
         self.deleteRecipient(account: cell.user, index: (Int)(index))
     }
-    
 }

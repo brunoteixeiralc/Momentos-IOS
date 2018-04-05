@@ -17,9 +17,9 @@ class InboxViewController: UITableViewController {
     
     var chats = [Chat]()
     var currentUser: User!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         //Current user
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -28,10 +28,16 @@ class InboxViewController: UITableViewController {
         let newsFeedController = firstNavVC.topViewController as! NewsFeedTableViewController
         currentUser = newsFeedController.currentUser
         
+        chats.removeAll()
+        fetchChat()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        fetchChat()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,8 +50,10 @@ class InboxViewController: UITableViewController {
     
     func fetchChat(){
         Chat.observerChat { (chat) in
-           self.chats.insert(chat, at: 0)
-           self.tableView.reloadData()
+            if chat.users.contains(self.currentUser){
+                self.chats.insert(chat, at: 0)
+                self.tableView.reloadData()
+            }
         }
     }
     

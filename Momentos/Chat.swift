@@ -116,7 +116,7 @@ func == (lhs:Chat, rhs:Chat) -> Bool {
 
 extension Chat{
     
-class func observerChat(_ completion: @escaping (Chat) -> Void){
+    class func observerChat(completion: @escaping (Chat) -> Void){
     DatabaseRef.chats.ref().observe(.childAdded, with: { (snapshot) in
         let chat = Chat(dictionary: snapshot.value as! [String:Any])
         completion(chat)

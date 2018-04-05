@@ -31,6 +31,11 @@ class NewsFeedTableViewController: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        if tableView != nil{
+            media.removeAll()
+            fetchMedia()
+        }
     }
     
     override func viewDidLoad() {
@@ -70,8 +75,7 @@ class NewsFeedTableViewController: UITableViewController{
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor.clear
         tableView.prefetchDataSource = self
-        
-        fetchMedia()
+
     }
     
     func fetchMedia(){
@@ -164,6 +168,9 @@ extension NewsFeedTableViewController{
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedStoryboard.mediaHeaderCell) as! MediaHeaderCell
         
+        cell.currentUser = nil
+        cell.media = nil
+        
         cell.currentUser = currentUser
         cell.media = media[section]
         cell.backgroundColor = UIColor.white
@@ -193,7 +200,6 @@ extension NewsFeedTableViewController:MediaNewsFeedViewCellDelegate{
     }
 }
 
-//Force Touch in the newsFeedImage
 extension NewsFeedTableViewController:UIViewControllerPreviewingDelegate{
   
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -218,11 +224,11 @@ extension NewsFeedTableViewController:UIViewControllerPreviewingDelegate{
 }
 
 extension NewsFeedTableViewController:UITableViewDataSourcePrefetching{
-    
+
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { self.downloadMediaImage(forItemAtIndex: $0.section) }
     }
-    
+
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
     }
 }

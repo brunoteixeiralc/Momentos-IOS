@@ -38,8 +38,10 @@ class CommentComposerViewController: UIViewController {
                 
             })
         }else{
-            profileImageView.image = currentUser.profileImage
+            self.profileImageView.image = currentUser.profileImage
         }
+        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width/2.0
+        self.profileImageView.layer.masksToBounds = true
         
         usernameLabel.setTitle(currentUser.userName, for: [])
         

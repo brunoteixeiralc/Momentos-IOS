@@ -19,9 +19,9 @@ class ProfileViewController: UITableViewController {
     @IBOutlet weak var followerTextField: UITextField!
     
     var currentUser:User!
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         //Current user
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -32,7 +32,7 @@ class ProfileViewController: UITableViewController {
         
         fullNameTextFields.text = currentUser.fullName
         if let email = Auth.auth().currentUser?.email{
-          emailTextField.text = email
+            emailTextField.text = email
         }
         usernameTextField.text = currentUser.userName
         followTextField.text = "\(String(currentUser.follows.count)) amigos"
@@ -46,7 +46,10 @@ class ProfileViewController: UITableViewController {
             self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width/2.0
             self.profileImageView.layer.masksToBounds = true
         })
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 
     @IBAction func logOutDidTap(_ sender: Any) {
