@@ -48,6 +48,7 @@ enum StorageRef {
     case root
     case images
     case profileImages
+    case chatImages
     
     func ref() -> StorageReference {
         return baseRef.child(path)
@@ -66,6 +67,8 @@ enum StorageRef {
             return "images"
         case .profileImages:
             return "profileImages"
+        case .chatImages:
+            return "chatImages"
             
         }
     }

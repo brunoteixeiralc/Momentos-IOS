@@ -12,6 +12,8 @@ import Firebase
 
 class ChatViewController: JSQMessagesViewController {
 
+    var imagePickerHelper:ImagePickerHelper!
+    
     var chat: Chat!
     var currentUser: User!
     
@@ -112,6 +114,13 @@ extension ChatViewController{
     override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
        // isTyping = textView.text != ""
+    }
+    
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        imagePickerHelper = ImagePickerHelper(viewController: self, completion: { (image) in
+           // self.profileImageView.image = image
+           // self.profileImage = image
+        })
     }
 }
 

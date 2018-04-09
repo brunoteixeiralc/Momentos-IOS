@@ -37,7 +37,6 @@
 		F45FFF701EFC9E8900D813FF /* MediaDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */; };
 		F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */; };
 		F45FFF741F047D2500D813FF /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */; };
-		F4610FF82075C82700D13370 /* NewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4610FF72075C82700D13370 /* NewChat.swift */; };
 		F4A011A7206F058B00DDDE13 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A011A6206F058A00DDDE13 /* loading.json */; };
 		F4A3ADA61EFB51D500B0AC45 /* MediaHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */; };
 		F4A3ADA81EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A3ADA71EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift */; };
@@ -84,7 +83,6 @@
 		F45FFF6F1EFC9E8900D813FF /* MediaDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailTableViewController.swift; sourceTree = "<group>"; };
 		F45FFF711F01DB5900D813FF /* CommentComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentComposerViewController.swift; sourceTree = "<group>"; };
 		F45FFF731F047D2500D813FF /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
-		F4610FF72075C82700D13370 /* NewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChat.swift; sourceTree = "<group>"; };
 		F4A011A6206F058A00DDDE13 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F4A3ADA51EFB51D500B0AC45 /* MediaHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHeaderCell.swift; sourceTree = "<group>"; };
 		F4A3ADA71EFB57B100B0AC45 /* MediaNewsFeedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaNewsFeedViewCell.swift; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				F44F50BD1F1B9FDB009CF0CC /* ChatViewController.swift */,
 				F41208741F16FA4600D2F5BE /* ContactsPickerViewController.swift */,
 				F44F50BF1F1BD21B009CF0CC /* InboxViewController.swift */,
-				F4610FF72075C82700D13370 /* NewChat.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -484,7 +481,6 @@
 				F4065F181EE8DFF400D04E4F /* PostComposerViewController.swift in Sources */,
 				F4065F131EE8D25900D04E4F /* Comments.swift in Sources */,
 				F45FFF721F01DB5900D813FF /* CommentComposerViewController.swift in Sources */,
-				F4610FF82075C82700D13370 /* NewChat.swift in Sources */,
 				F4114A1B20729BA3001CFAE6 /* MediaDetailViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

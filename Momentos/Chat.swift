@@ -106,6 +106,10 @@ extension Chat
         ref.child("messageIds").childByAutoId().setValue(message.uid)
         
     }
+    
+    func sendImage(){
+        
+    }
 }
 
 extension Chat:Equatable{}
