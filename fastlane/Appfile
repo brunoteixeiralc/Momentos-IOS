@@ -1,0 +1,6 @@
+app_identifier("br.com.momentos.app") # The bundle identifier of your app
+apple_id("brunoteixeiralc@gmail.com") # Your Apple email address
+
+itc_team_id "2814815" # iTunes Connect Team ID
+team_id "8UW672R5KC" # Developer Portal Team ID
+
