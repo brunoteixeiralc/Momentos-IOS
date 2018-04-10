@@ -129,6 +129,11 @@ class ContactsPickerViewController: UITableViewController {
             }
             
             let newChat = Chat(users: chatAccounts, title: title, featuredImageUID: chatAccounts.first!.uid)
+            newChat.save()
+            for account in newChat.users{
+                account.save(new: newChat)
+            }
+            
             self.performSegue(withIdentifier: Storyboard.showChatViewController, sender: newChat)
         }
         

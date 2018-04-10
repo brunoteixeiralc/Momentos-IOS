@@ -107,8 +107,14 @@ extension Chat
         
     }
     
-    func sendImage(){
+    func sendImage(message:Message){
+        self.messageIds.append(message.uid)
+        self.lastMessage = message.text
+        self.lastUpdate = Date().timeIntervalSince1970
         
+        ref.child("lastMessage").setValue("(imagem)")
+        ref.child("lastUpdate").setValue(lastUpdate)
+        ref.child("messageIds").childByAutoId().setValue(message.uid)
     }
 }
 

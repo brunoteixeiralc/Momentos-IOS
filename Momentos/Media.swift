@@ -44,8 +44,6 @@ class Media{
         
         likes = []
         if let likesDict = dictionary["likes"] as? [String:Any] {
-            print("likes - \(likesDict.count)")
-            
             for(_,userDict) in likesDict {
                 if let userDict = userDict as? [String:Any] {
                     likes.append(User(dictionary: userDict))
@@ -55,8 +53,6 @@ class Media{
         
         comments = []
         if let commentsDict = dictionary["comments"] as? [String:Any]{
-            print("comments - \(commentsDict.count)")
-            
             for(_,commentDict) in commentsDict {
                 if let commentDict = commentDict as? [String:Any] {
                     comments.append(Comments(dictionary: commentDict))

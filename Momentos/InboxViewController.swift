@@ -50,7 +50,7 @@ class InboxViewController: UITableViewController {
     
     func fetchChat(){
         Chat.observerChat { (chat) in
-            if chat.users.contains(self.currentUser){
+            if self.currentUser != nil && chat.users.contains(self.currentUser){
                 self.chats.insert(chat, at: 0)
                 self.tableView.reloadData()
             }

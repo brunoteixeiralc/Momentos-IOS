@@ -23,22 +23,23 @@ class ChatViewController: JSQMessagesViewController {
     var jsqMessages = [JSQMessage]()
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
-
+    var photoMessageMap = [String: JSQPhotoMediaItem]()
+    
     var userIsTypingRef = DatabaseRef.chats.ref()
     var localTyping = false
-//    var isTyping: Bool {
-//        get {
-//            return localTyping
-//        }
-//        set {
-//            localTyping = newValue
-//            userIsTypingRef.setValue(newValue)
-//        }
-//    }
+    var isTyping: Bool {
+        get {
+            return localTyping
+        }
+        set {
+            localTyping = newValue
+            userIsTypingRef.setValue(newValue)
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //self.observeTyping()
+        self.observeTyping()
     }
     
     override func viewDidLoad() {
@@ -113,13 +114,14 @@ extension ChatViewController{
     
     override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
-       // isTyping = textView.text != ""
+        isTyping = textView.text != ""
     }
     
     override func didPressAccessoryButton(_ sender: UIButton!) {
         imagePickerHelper = ImagePickerHelper(viewController: self, completion: { (image) in
-           // self.profileImageView.image = image
-           // self.profileImage = image
+            if let chatImage = image{
+                 self.sendImage(image: chatImage)
+            }
         })
     }
 }
@@ -127,14 +129,6 @@ extension ChatViewController{
 extension ChatViewController{
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        if chat.messageIds.count == 0{
-            chat.save()
-            
-            for account in chat.users{
-                account.save(new: chat)
-            }
-        }
-        
         let newMessage = Message(senderUID: currentUser.uid, senderDisplayName: currentUser.fullName, type: MessageType.text, text: text)
         newMessage.save()
         chat.send(message: newMessage)
@@ -142,7 +136,19 @@ extension ChatViewController{
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         finishSendingMessage()
         
-       // isTyping = false
+        isTyping = false
+    }
+    
+    func sendImage(image:UIImage){
+        let newMessage = Message(senderUID: currentUser.uid, senderDisplayName: currentUser.fullName, type: MessageType.image, text: "")
+        newMessage.save()
+        
+        let firImage = FIRImage(image: image)
+        firImage.saveChatImage(uid: newMessage.uid) { (error) in
+           self.chat.sendImage(message: newMessage)
+        }
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        finishSendingMessage()
     }
     
 }
@@ -156,35 +162,52 @@ extension ChatViewController{
             DatabaseRef.messages.ref().child(messageId).observe(.value, with: { (snapshot) in
                 let message = Message(dictionary: snapshot.value as! [String:Any])
                 self.messages.append(message)
-                self.add(message)
+                if message.type == MessageType.text{
+                    self.add(message, mediaItem: nil)
+                }else if message.type == MessageType.image{
+                    if let senderId = message.senderUID as String?,let mediaItem = JSQPhotoMediaItem(maskAsOutgoing: senderId == self.currentUser.uid){
+                        FIRImage.downloadChatImage(uid: message.uid, completion: { (image, error) in
+                           mediaItem.image = image
+                           self.add(message, mediaItem: mediaItem)
+                           self.photoMessageMap.removeValue(forKey: message.senderUID)
+                        })
+                    }
+                }
                 self.finishReceivingMessage()
             })
-            
         })
     }
     
-    func add(_ message:Message){
+    func add(_ message:Message, mediaItem:JSQPhotoMediaItem?){
         if message.type == MessageType.text{
             let jsqMessage = JSQMessage(senderId: message.senderUID, displayName: message.senderDisplayName, text: message.text)
             jsqMessages.append(jsqMessage!)
+        }else if message.type == MessageType.image{
+            let jsqImage = JSQMessage(senderId: message.senderUID, displayName: "", media: mediaItem)
+            jsqMessages.append(jsqImage!)
+            
+            if (mediaItem?.image == nil) {
+                photoMessageMap[message.uid] = mediaItem
+            }
+            collectionView.reloadData()
         }
     }
 }
 
 extension ChatViewController{
 
-//    func observeTyping() {
-//        let typingIndicatorRef = chat.ref.child("typingIndicator")
-//        userIsTypingRef = typingIndicatorRef.child(senderId)
-//        userIsTypingRef.onDisconnectRemoveValue()
-//
-//        let usersTypingQuery = chat.ref.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
-//        usersTypingQuery.observe(.value, with: { (snapshot) in
-//            if snapshot.childrenCount == 1 && self.isTyping {
-//                return
-//            }
-//            self.showTypingIndicator = snapshot.childrenCount > 0
-//            self.scrollToBottom(animated: true)
-//        })
-//    }
+    func observeTyping() {
+        let typingIndicatorRef = chat.ref.child("typingIndicator")
+        userIsTypingRef = typingIndicatorRef.child(senderId)
+        userIsTypingRef.onDisconnectRemoveValue()
+
+        let usersTypingQuery = chat.ref.child("typingIndicator").queryOrderedByValue().queryEqual(toValue: true)
+        usersTypingQuery.observe(.value, with: { (snapshot) in
+            if snapshot.childrenCount == 1 && self.isTyping {
+                return
+            }
+            self.showTypingIndicator = snapshot.childrenCount > 0
+            self.scrollToBottom(animated: true)
+        })
+    }
 }
