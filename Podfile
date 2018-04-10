@@ -2,25 +2,24 @@ platform :ios, '10.3'
 use_frameworks!
 
 target 'Momentos' do
-
-pod 'Firebase'
-pod 'Firebase/Database'
-pod 'Firebase/Auth'
-pod 'Firebase/Storage'
-
-pod 'DGActivityIndicatorView'
-pod 'SAMCache'
-pod 'VENTokenField'
-
-pod 'JSQMessagesViewController'
-pod 'MessageKit'
-
-pod 'FacebookCore'
-pod 'FacebookLogin'
-pod 'FacebookShare'
-
-pod 'lottie-ios','1.5.1'
-
+    
+    pod 'Firebase'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+    
+    pod 'DGActivityIndicatorView'
+    pod 'SAMCache'
+    pod 'VENTokenField'
+    
+    pod 'JSQMessagesViewController'
+    
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
+    pod 'FacebookShare'
+    
+    pod 'lottie-ios','1.5.1'
+    
 end
 
 post_install do |installer|
@@ -30,3 +29,4 @@ post_install do |installer|
         end
     end
 end
+
