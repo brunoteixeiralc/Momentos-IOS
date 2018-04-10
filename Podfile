@@ -1,7 +1,7 @@
 platform :ios, '10.3'
 use_frameworks!
 
-target 'Momentos' do
+target 'MomentosApp' do
     
     pod 'Firebase'
     pod 'Firebase/Database'
