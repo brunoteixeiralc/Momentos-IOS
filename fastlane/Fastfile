@@ -57,12 +57,6 @@ end
 desc "Release app"
     lane :release do
         match(type: "appstore", readonly: true)
-        build_app(scheme: "Momentos",
-            clean:true,
-            project: "MomentosApp.xcodeproj",
-            include_bitcode: true,
-            export_method:"app-store"
-        )
         appstore(skip_metadata:true,
             skip_screenshots:true,
             submit_for_review:true,
