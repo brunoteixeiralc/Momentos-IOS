@@ -40,8 +40,7 @@ class SignUpTableViewController: UITableViewController {
         if emailTextField.text != ""
             && (passwordTextField.text?.count)! > 6
             && (usernameTextField.text?.count)! > 6
-            && fullNameTextFields.text != ""
-            && profileImage != nil{
+            && fullNameTextFields.text != ""{
             
             let email = emailTextField.text!
             let password = passwordTextField.text!
@@ -72,6 +71,8 @@ class SignUpTableViewController: UITableViewController {
                 }
             })
             
+        }else{
+            self.alert(title: "Momentos", message: "Oops...ocorreu um erro ao se cadastrar. Todos os campos são obrigatórios.", buttonTitle: "OK")
         }
     }
     
